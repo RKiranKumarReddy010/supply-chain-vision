@@ -11,137 +11,226 @@ const SOCIALS = [
 ];
 
 /* ----------------------------- Hand ----------------------------- */
-function Finger({
-  basePos,
-  baseRot,
-  segments,
-  curl,
+
+const SKIN = "#d8a07a";
+const SKIN_DARK = "#b87a55";
+const SKIN_LIGHT = "#e8b893";
+const NAIL = "#f0d8c4";
+
+function Phalanx({
+  length,
+  rTop,
+  rBot,
 }: {
-  basePos: [number, number, number];
-  baseRot: [number, number, number];
-  segments: { len: number; radius: number }[];
-  curl: number; // 0..1 how much the finger is bent
+  length: number;
+  rTop: number;
+  rBot: number;
 }) {
-  // Build a chain of joints
+  // Tapered, slightly flattened phalanx (wider than tall)
   return (
-    <group position={basePos} rotation={baseRot}>
-      <FingerChain segments={segments} curl={curl} />
+    <group>
+      <mesh castShadow position={[0, 0, length / 2]} rotation={[Math.PI / 2, 0, 0]} scale={[1, 1, 0.78]}>
+        <cylinderGeometry args={[rTop, rBot, length, 20]} />
+        <meshStandardMaterial color={SKIN} roughness={0.62} />
+      </mesh>
+      {/* Subtle skin crease line */}
+      <mesh position={[0, -rBot * 0.7, length * 0.15]} rotation={[Math.PI / 2, 0, 0]}>
+        <torusGeometry args={[rBot * 0.8, 0.008, 6, 16, Math.PI * 0.8]} />
+        <meshStandardMaterial color={SKIN_DARK} roughness={0.9} />
+      </mesh>
     </group>
   );
 }
 
-function FingerChain({
-  segments,
-  curl,
-  index = 0,
-}: {
-  segments: { len: number; radius: number }[];
-  curl: number;
-  index?: number;
-}) {
-  if (index >= segments.length) return null;
-  const seg = segments[index];
-  // Curl angle increases per joint
-  const bend = curl * (index === 0 ? 0.5 : 0.9);
+function Knuckle({ radius }: { radius: number }) {
   return (
-    <group rotation={[bend, 0, 0]}>
-      {/* Joint sphere */}
-      <mesh>
-        <sphereGeometry args={[seg.radius * 1.05, 16, 16]} />
-        <meshStandardMaterial color="#e8c5a8" roughness={0.6} />
-      </mesh>
-      {/* Bone */}
-      <mesh position={[0, 0, seg.len / 2]} rotation={[Math.PI / 2, 0, 0]}>
-        <cylinderGeometry args={[seg.radius, seg.radius * 0.92, seg.len, 16]} />
-        <meshStandardMaterial color="#edcdb0" roughness={0.55} />
-      </mesh>
-      <group position={[0, 0, seg.len]}>
-        <FingerChain segments={segments} curl={curl} index={index + 1} />
+    <mesh castShadow scale={[1.05, 0.85, 1]}>
+      <sphereGeometry args={[radius, 20, 16]} />
+      <meshStandardMaterial color={SKIN_LIGHT} roughness={0.55} />
+    </mesh>
+  );
+}
+
+function Fingernail({ radius, length }: { radius: number; length: number }) {
+  // Small curved nail on top of fingertip
+  return (
+    <mesh position={[0, radius * 0.75, length * 0.7]} rotation={[-0.4, 0, 0]} scale={[0.8, 0.4, 1.2]}>
+      <sphereGeometry args={[radius * 0.55, 16, 12, 0, Math.PI * 2, 0, Math.PI / 2]} />
+      <meshStandardMaterial color={NAIL} roughness={0.3} metalness={0.05} />
+    </mesh>
+  );
+}
+
+function Finger({
+  basePos,
+  baseRot,
+  lengths,
+  radii,
+  curls,
+  spread = 0,
+}: {
+  basePos: [number, number, number];
+  baseRot: [number, number, number];
+  lengths: [number, number, number]; // proximal, middle, distal
+  radii: [number, number, number, number]; // base, p-d/m-base, m-d/d-base, tip
+  curls: [number, number, number]; // bend at each joint (radians)
+  spread?: number;
+}) {
+  const [l1, l2, l3] = lengths;
+  const [r0, r1, r2, r3] = radii;
+  const [c1, c2, c3] = curls;
+
+  return (
+    <group position={basePos} rotation={baseRot}>
+      {/* MCP (knuckle at hand) */}
+      <Knuckle radius={r0} />
+      <group rotation={[c1, spread, 0]}>
+        <Phalanx length={l1} rTop={r1} rBot={r0} />
+        <group position={[0, 0, l1]}>
+          {/* PIP joint */}
+          <Knuckle radius={r1 * 0.95} />
+          <group rotation={[c2, 0, 0]}>
+            <Phalanx length={l2} rTop={r2} rBot={r1} />
+            <group position={[0, 0, l2]}>
+              {/* DIP joint */}
+              <Knuckle radius={r2 * 0.92} />
+              <group rotation={[c3, 0, 0]}>
+                <Phalanx length={l3} rTop={r3} rBot={r2} />
+                {/* Fingertip pad */}
+                <mesh position={[0, -r3 * 0.1, l3]} scale={[1, 0.85, 0.95]}>
+                  <sphereGeometry args={[r3 * 1.05, 18, 14]} />
+                  <meshStandardMaterial color={SKIN_LIGHT} roughness={0.55} />
+                </mesh>
+                <Fingernail radius={r3} length={l3} />
+              </group>
+            </group>
+          </group>
+        </group>
       </group>
+    </group>
+  );
+}
+
+function Palm() {
+  return (
+    <group>
+      {/* Main palm — flattened ellipsoid */}
+      <mesh castShadow receiveShadow scale={[1.3, 0.42, 1.2]}>
+        <sphereGeometry args={[1.0, 32, 24]} />
+        <meshStandardMaterial color={SKIN} roughness={0.62} />
+      </mesh>
+      {/* Thenar eminence (thumb muscle pad) */}
+      <mesh castShadow position={[0.85, 0.08, -0.15]} scale={[0.55, 0.45, 0.7]}>
+        <sphereGeometry args={[0.6, 24, 20]} />
+        <meshStandardMaterial color={SKIN_LIGHT} roughness={0.6} />
+      </mesh>
+      {/* Hypothenar eminence (pinky side pad) */}
+      <mesh castShadow position={[-0.95, 0.05, -0.05]} scale={[0.4, 0.4, 0.85]}>
+        <sphereGeometry args={[0.55, 24, 20]} />
+        <meshStandardMaterial color={SKIN} roughness={0.65} />
+      </mesh>
+      {/* Knuckle ridge (metacarpal heads, top of palm) */}
+      <mesh castShadow position={[0, 0.1, 0.95]} scale={[1.15, 0.35, 0.4]}>
+        <sphereGeometry args={[0.85, 28, 18]} />
+        <meshStandardMaterial color={SKIN_LIGHT} roughness={0.6} />
+      </mesh>
+      {/* Palm crease (life line / heart line) */}
+      <mesh position={[0.1, 0.42, 0.05]} rotation={[-Math.PI / 2, 0, -0.4]}>
+        <torusGeometry args={[0.55, 0.01, 6, 24, Math.PI * 0.7]} />
+        <meshStandardMaterial color={SKIN_DARK} roughness={0.9} />
+      </mesh>
+      <mesh position={[-0.1, 0.42, 0.4]} rotation={[-Math.PI / 2, 0, 0.2]}>
+        <torusGeometry args={[0.7, 0.009, 6, 24, Math.PI * 0.55]} />
+        <meshStandardMaterial color={SKIN_DARK} roughness={0.9} />
+      </mesh>
     </group>
   );
 }
 
 function Hand({ indexCurl }: { indexCurl: number }) {
-  // Hand is oriented palm-up, fingers pointing +Z
+  // Hand tilted back so palm faces camera-up, fingers reach forward (+Z)
   return (
-    <group rotation={[-Math.PI / 2.4, 0, 0]} position={[0, -1.4, 0]}>
-      {/* Palm */}
-      <RoundedBox args={[2.6, 0.55, 2.4]} radius={0.25} smoothness={4} castShadow receiveShadow position={[0, 0, 0]}>
-        <meshStandardMaterial color="#e8c5a8" roughness={0.65} />
-      </RoundedBox>
+    <group rotation={[-Math.PI / 2.3, 0, 0]} position={[0, -1.5, 0.2]}>
+      <Palm />
 
-      {/* Thumb (curled around side) */}
-      <group position={[1.25, 0.05, -0.4]} rotation={[0, 0, -0.6]}>
-        <Finger
-          basePos={[0, 0, 0]}
-          baseRot={[0.2, -0.8, 0]}
-          segments={[
-            { len: 0.55, radius: 0.18 },
-            { len: 0.45, radius: 0.16 },
-            { len: 0.35, radius: 0.13 },
-          ]}
-          curl={0.55}
-        />
-      </group>
-
-      {/* Index finger — animated curl */}
+      {/* Index finger — animated, slight outward spread */}
       <Finger
-        basePos={[0.7, 0.15, 1.15]}
-        baseRot={[0, 0, 0]}
-        segments={[
-          { len: 0.55, radius: 0.16 },
-          { len: 0.45, radius: 0.14 },
-          { len: 0.35, radius: 0.12 },
-        ]}
-        curl={indexCurl}
+        basePos={[0.62, 0.18, 0.92]}
+        baseRot={[0, 0.04, 0]}
+        lengths={[0.6, 0.42, 0.32]}
+        radii={[0.16, 0.145, 0.13, 0.115]}
+        curls={[indexCurl * 0.55, indexCurl * 0.95, indexCurl * 0.7]}
+        spread={0.05}
       />
 
-      {/* Middle finger (slight curl, supports phone) */}
+      {/* Middle finger — longest, mostly curled to grip phone back */}
       <Finger
-        basePos={[0.22, 0.15, 1.2]}
-        baseRot={[0, 0, 0]}
-        segments={[
-          { len: 0.6, radius: 0.17 },
-          { len: 0.5, radius: 0.15 },
-          { len: 0.38, radius: 0.13 },
-        ]}
-        curl={0.85}
+        basePos={[0.2, 0.2, 1.0]}
+        baseRot={[0, 0.0, 0]}
+        lengths={[0.66, 0.46, 0.34]}
+        radii={[0.165, 0.15, 0.135, 0.12]}
+        curls={[0.9, 1.2, 0.6]}
       />
 
       {/* Ring finger */}
       <Finger
-        basePos={[-0.28, 0.15, 1.18]}
-        baseRot={[0, 0, 0]}
-        segments={[
-          { len: 0.55, radius: 0.16 },
-          { len: 0.45, radius: 0.14 },
-          { len: 0.35, radius: 0.12 },
-        ]}
-        curl={0.9}
+        basePos={[-0.22, 0.18, 0.95]}
+        baseRot={[0, -0.02, 0]}
+        lengths={[0.6, 0.42, 0.3]}
+        radii={[0.155, 0.14, 0.125, 0.11]}
+        curls={[0.95, 1.25, 0.65]}
+        spread={-0.03}
       />
 
-      {/* Pinky */}
+      {/* Pinky — shorter, set lower */}
       <Finger
-        basePos={[-0.78, 0.13, 1.1]}
-        baseRot={[0, 0, 0]}
-        segments={[
-          { len: 0.45, radius: 0.14 },
-          { len: 0.36, radius: 0.12 },
-          { len: 0.28, radius: 0.1 },
-        ]}
-        curl={0.95}
+        basePos={[-0.62, 0.13, 0.78]}
+        baseRot={[0, -0.15, 0]}
+        lengths={[0.45, 0.32, 0.24]}
+        radii={[0.13, 0.12, 0.105, 0.095]}
+        curls={[1.0, 1.3, 0.7]}
+        spread={-0.08}
       />
 
-      {/* Wrist */}
-      <mesh position={[0, -0.05, -1.5]} castShadow>
-        <cylinderGeometry args={[0.85, 0.95, 1.6, 24]} />
-        <meshStandardMaterial color="#d9b598" roughness={0.7} />
+      {/* Thumb — opposed, gripping side of phone */}
+      <group position={[1.05, 0.15, 0.05]} rotation={[0.3, -0.9, -1.1]}>
+        <Knuckle radius={0.22} />
+        <group rotation={[0.5, 0, 0]}>
+          <Phalanx length={0.55} rTop={0.18} rBot={0.21} />
+          <group position={[0, 0, 0.55]}>
+            <Knuckle radius={0.18} />
+            <group rotation={[0.7, 0, 0]}>
+              <Phalanx length={0.42} rTop={0.15} rBot={0.18} />
+              <mesh position={[0, -0.02, 0.42]} scale={[1, 0.85, 0.95]}>
+                <sphereGeometry args={[0.16, 18, 14]} />
+                <meshStandardMaterial color={SKIN_LIGHT} roughness={0.55} />
+              </mesh>
+              <Fingernail radius={0.15} length={0.42} />
+            </group>
+          </group>
+        </group>
+      </group>
+
+      {/* Wrist — tapered toward arm */}
+      <mesh castShadow position={[0, -0.02, -0.95]} scale={[1, 0.7, 1]}>
+        <cylinderGeometry args={[0.62, 0.7, 1.1, 28]} />
+        <meshStandardMaterial color={SKIN_DARK} roughness={0.7} />
       </mesh>
-      {/* Sleeve */}
-      <mesh position={[0, -0.05, -2.3]} castShadow>
-        <cylinderGeometry args={[1.0, 1.05, 0.6, 24]} />
+      {/* Wrist bone bump (ulnar styloid) */}
+      <mesh position={[-0.55, 0.05, -0.7]} scale={[0.4, 0.4, 0.6]}>
+        <sphereGeometry args={[0.2, 16, 12]} />
+        <meshStandardMaterial color={SKIN_LIGHT} roughness={0.6} />
+      </mesh>
+
+      {/* Sleeve cuff */}
+      <mesh castShadow position={[0, -0.02, -1.7]} scale={[1, 0.75, 1]}>
+        <cylinderGeometry args={[0.78, 0.82, 0.7, 28]} />
         <meshStandardMaterial color="#0f0f0f" roughness={0.9} />
+      </mesh>
+      {/* Cuff hem highlight */}
+      <mesh position={[0, -0.02, -1.36]} scale={[1, 0.75, 1]}>
+        <torusGeometry args={[0.78, 0.025, 8, 32]} />
+        <meshStandardMaterial color="#1a1a1a" roughness={0.6} />
       </mesh>
     </group>
   );
