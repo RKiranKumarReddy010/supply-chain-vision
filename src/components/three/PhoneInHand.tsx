@@ -374,7 +374,7 @@ function SceneInner({ progress }: { progress: number }) {
   );
 }
 
-const SOCIALS_LEN = 4;
+
 
 export default function PhoneInHand({ progress }: { progress: number }) {
   return (
