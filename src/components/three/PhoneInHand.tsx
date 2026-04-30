@@ -458,8 +458,20 @@ function SceneInner({ progress }: { progress: number }) {
       <pointLight position={[0, 2, 4]} intensity={0.8} color="#ffd9b8" />
       <pointLight position={[-3, -2, 3]} intensity={0.3} color="#a8c8ff" />
 
-      <Hand indexCurl={indexCurl} />
-      <Phone scrollOffset={scrollOffset} activeIdx={activeIdx} />
+      {/* Phone: upright, vertical, facing camera */}
+      <group position={[0.2, 0.2, 0]} rotation={[0, -0.08, 0]}>
+        <Phone scrollOffset={scrollOffset} activeIdx={activeIdx} />
+      </group>
+
+      {/* Hand: enters from bottom-right, fingers wrap the right edge of the phone,
+          thumb comes around to the front. Local hand frame has palm facing +Y and
+          fingers pointing +Z, so we rotate it so palm faces -X (toward phone back),
+          fingers point +Y (upward along phone), and arm drops down-right. */}
+      <group position={[1.55, -1.2, 0.0]} rotation={[0, -0.25, -1.35]}>
+        <group rotation={[0.15, 0, 0]}>
+          <Hand indexCurl={indexCurl} />
+        </group>
+      </group>
     </>
   );
 }
