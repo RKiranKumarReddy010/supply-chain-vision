@@ -1,5 +1,6 @@
-import { useMemo, useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { useMemo, useRef, Suspense } from "react";
+import { Canvas, useFrame, useLoader } from "@react-three/fiber";
+import { RoundedBox } from "@react-three/drei";
 import * as THREE from "three";
 
 /* ----------------------------- Models ----------------------------- */
@@ -84,46 +85,132 @@ function Store({ position, pulse = 0 }: { position: [number, number, number]; pu
 
 function Truck({ curve, t }: { curve: THREE.CatmullRomCurve3; t: number }) {
   const group = useRef<THREE.Group>(null);
+  
+  const logoTexture = useLoader(THREE.TextureLoader, "/favicon.ico?v=2");
+  logoTexture.colorSpace = THREE.SRGBColorSpace;
+
   useFrame(() => {
     if (!group.current) return;
     const tt = Math.max(0.001, Math.min(0.999, t));
     const pos = curve.getPointAt(tt);
     const tan = curve.getTangentAt(tt);
-    group.current.position.set(pos.x, pos.y + 0.35, pos.z);
+    group.current.position.set(pos.x, pos.y, pos.z);
     const angle = Math.atan2(tan.x, tan.z);
     group.current.rotation.y = angle;
   });
   return (
     <group ref={group}>
+      {/* Chassis/Frame */}
+      <mesh position={[0, 0.41, 0.1]}>
+        <boxGeometry args={[0.8, 0.1, 2.0]} />
+        <meshStandardMaterial color="#222" metalness={0.8} roughness={0.5} />
+      </mesh>
+
       {/* Cargo box */}
-      <mesh castShadow position={[0, 0.55, -0.35]}>
-        <boxGeometry args={[0.9, 0.9, 1.4]} />
+      <RoundedBox args={[0.9, 1.2, 1.4]} radius={0.04} smoothness={4} castShadow position={[0, 1.06, -0.4]}>
         <meshStandardMaterial color="#f4f4f4" roughness={0.4} metalness={0.15} />
+      </RoundedBox>
+
+      {/* Logo Right */}
+      <mesh position={[0.455, 1.06, -0.4]} rotation={[0, Math.PI / 2, 0]}>
+        <planeGeometry args={[0.7, 0.7]} />
+        <meshStandardMaterial map={logoTexture} transparent alphaTest={0.05} />
       </mesh>
+
+      {/* Logo Left */}
+      <mesh position={[-0.455, 1.06, -0.4]} rotation={[0, -Math.PI / 2, 0]}>
+        <planeGeometry args={[0.7, 0.7]} />
+        <meshStandardMaterial map={logoTexture} transparent alphaTest={0.05} />
+      </mesh>
+
       {/* Cab */}
-      <mesh castShadow position={[0, 0.45, 0.7]}>
-        <boxGeometry args={[0.9, 0.7, 0.7]} />
-        <meshStandardMaterial color="#cfcfcf" roughness={0.45} />
-      </mesh>
+      <RoundedBox args={[0.9, 0.8, 0.7]} radius={0.05} smoothness={4} castShadow position={[0, 0.86, 0.65]}>
+        <meshStandardMaterial color="#ffc107" roughness={0.4} metalness={0.6} />
+      </RoundedBox>
+
+      {/* Nose/Engine */}
+      <RoundedBox args={[0.9, 0.5, 0.4]} radius={0.04} smoothness={4} castShadow position={[0, 0.71, 1.15]}>
+        <meshStandardMaterial color="#ffc107" roughness={0.4} metalness={0.6} />
+      </RoundedBox>
+
       {/* Windshield */}
-      <mesh position={[0, 0.6, 1.06]}>
-        <planeGeometry args={[0.7, 0.35]} />
-        <meshStandardMaterial color="#0a0a0a" emissive="#ffffff" emissiveIntensity={0.08} />
+      <mesh position={[0, 1.02, 1.01]} rotation={[-0.1, 0, 0]}>
+        <planeGeometry args={[0.8, 0.38]} />
+        <meshStandardMaterial color="#050505" emissive="#ffffff" emissiveIntensity={0.1} roughness={0.1} metalness={0.9} />
       </mesh>
+
+      {/* Side Mirrors */}
+      <mesh position={[0.48, 0.95, 0.85]}>
+        <boxGeometry args={[0.08, 0.18, 0.06]} />
+        <meshStandardMaterial color="#111" roughness={0.4} />
+      </mesh>
+      <mesh position={[-0.48, 0.95, 0.85]}>
+        <boxGeometry args={[0.08, 0.18, 0.06]} />
+        <meshStandardMaterial color="#111" roughness={0.4} />
+      </mesh>
+
+      {/* Grille */}
+      <mesh position={[0, 0.71, 1.355]}>
+        <planeGeometry args={[0.6, 0.3]} />
+        <meshStandardMaterial color="#111" metalness={0.8} />
+      </mesh>
+
+      {/* Front Bumper */}
+      <RoundedBox args={[1.0, 0.15, 0.15]} radius={0.02} smoothness={2} position={[0, 0.51, 1.38]}>
+        <meshStandardMaterial color="#111" metalness={0.9} roughness={0.4} />
+      </RoundedBox>
+
+      {/* Exhaust Pipe */}
+      <mesh position={[0.48, 1.26, 0.35]}>
+        <cylinderGeometry args={[0.04, 0.04, 0.8]} />
+        <meshStandardMaterial color="#888" metalness={0.9} roughness={0.2} />
+      </mesh>
+
+      {/* Headlights */}
+      <mesh position={[0.35, 0.71, 1.36]}>
+        <boxGeometry args={[0.15, 0.1, 0.02]} />
+        <meshStandardMaterial color="#fff" emissive="#fff" emissiveIntensity={2} />
+      </mesh>
+      <mesh position={[-0.35, 0.71, 1.36]}>
+        <boxGeometry args={[0.15, 0.1, 0.02]} />
+        <meshStandardMaterial color="#fff" emissive="#fff" emissiveIntensity={2} />
+      </mesh>
+
+      {/* Taillights */}
+      <mesh position={[0.35, 0.56, -1.11]}>
+        <boxGeometry args={[0.15, 0.08, 0.02]} />
+        <meshStandardMaterial color="#f00" emissive="#f00" emissiveIntensity={1} />
+      </mesh>
+      <mesh position={[-0.35, 0.56, -1.11]}>
+        <boxGeometry args={[0.15, 0.08, 0.02]} />
+        <meshStandardMaterial color="#f00" emissive="#f00" emissiveIntensity={1} />
+      </mesh>
+
       {/* Wheels */}
       {[
-        [-0.45, 0.15, 0.6],
-        [0.45, 0.15, 0.6],
-        [-0.45, 0.15, -0.45],
-        [0.45, 0.15, -0.45],
+        [-0.45, 0.18, 0.9], // Front left
+        [0.45, 0.18, 0.9],  // Front right
+        [-0.45, 0.18, -0.6], // Rear left
+        [0.45, 0.18, -0.6],  // Rear right
+        [-0.45, 0.18, -0.9], // Rear-rear left
+        [0.45, 0.18, -0.9],  // Rear-rear right
       ].map((p, i) => (
-        <mesh key={i} position={p as [number, number, number]} rotation={[0, 0, Math.PI / 2]}>
-          <cylinderGeometry args={[0.16, 0.16, 0.12, 18]} />
-          <meshStandardMaterial color="#1f1f1f" roughness={0.85} />
-        </mesh>
+        <group key={i} position={p as [number, number, number]} rotation={[0, Math.PI / 2, 0]}>
+          {/* Tire */}
+          <mesh>
+            <torusGeometry args={[0.12, 0.06, 16, 32]} />
+            <meshStandardMaterial color="#0f0f0f" roughness={0.9} />
+          </mesh>
+          {/* Rim */}
+          <mesh rotation={[Math.PI / 2, 0, 0]}>
+            <cylinderGeometry args={[0.11, 0.11, 0.1, 16]} />
+            <meshStandardMaterial color="#b0b0b0" metalness={0.9} roughness={0.2} />
+          </mesh>
+        </group>
       ))}
+
       {/* Headlight glow */}
-      <pointLight position={[0, 0.5, 1.2]} intensity={0.6} distance={3} color="#ffffff" />
+      <pointLight position={[0, 0.66, 1.6]} intensity={12.0} distance={20} color="#ffffff" />
     </group>
   );
 }
@@ -231,7 +318,9 @@ export default function SupplyChainScene({ progress }: { progress: number }) {
       gl={{ antialias: true, powerPreference: "high-performance" }}
       style={{ width: "100%", height: "100%" }}
     >
-      <SceneInner progress={progress} />
+      <Suspense fallback={null}>
+        <SceneInner progress={progress} />
+      </Suspense>
     </Canvas>
   );
 }

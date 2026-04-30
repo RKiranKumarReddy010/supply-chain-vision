@@ -16,11 +16,21 @@ export default function Nav() {
       }`}
     >
       <nav className="mx-auto max-w-7xl px-6 lg:px-10 h-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2 group">
-          <span className="inline-block w-2 h-2 bg-foreground rounded-full" />
-          <span className="font-display text-sm tracking-[0.18em] uppercase text-foreground">
-            Axis <span className="text-muted-foreground">// </span>Analytics
-          </span>
+        <a href="#top" className="flex items-center group relative z-50 w-16 h-10">
+          <div className="absolute top-1/2 left-2 -translate-y-1/2 w-20 text-foreground drop-shadow-xl group-hover:scale-105 transition-transform duration-500">
+            <svg viewBox="0 0 200 150" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
+              {/* Outer arc */}
+              <path d="M 30 90 C 30 10, 170 10, 170 90 C 165 90, 160 30, 100 30 C 40 30, 35 90, 30 90 Z" />
+              {/* Inner spike */}
+              <path d="M 55 65 Q 80 40 90 55 L 100 100 L 110 55 Q 120 40 145 65 Q 125 45 100 40 Q 75 45 55 65 Z" />
+              {/* Text O M N I */}
+              <text x="102" y="115" font-family="'Space Grotesk', system-ui, sans-serif" font-weight="900" font-size="20" text-anchor="middle" letter-spacing="0.4em">OMNI</text>
+              {/* Horizontal Line */}
+              <rect x="30" y="122" width="140" height="2" />
+              {/* Text TENSORS */}
+              <text x="102" y="142" font-family="'Space Grotesk', system-ui, sans-serif" font-weight="900" font-size="24" text-anchor="middle" letter-spacing="0.1em">TENSORS</text>
+            </svg>
+          </div>
         </a>
         <ul className="hidden md:flex items-center gap-10 text-xs uppercase tracking-[0.18em] text-muted-foreground">
           {["Services", "Process", "Work", "Insights"].map((l) => (

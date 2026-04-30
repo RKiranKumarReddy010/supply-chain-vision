@@ -4,9 +4,9 @@ import { useScrollProgress } from "@/hooks/useScrollProgress";
 const SupplyChainScene = lazy(() => import("./three/SupplyChainScene"));
 
 const STAGES = [
-  { id: "01", label: "Warehouse", title: "Supply Chain Intelligence,", title2: "Engineered." },
-  { id: "02", label: "Transit", title: "Map every node.", title2: "Measure every move." },
-  { id: "03", label: "Retail", title: "From warehouse to shelf —", title2: "optimized." },
+  { id: "01", label: "Signal", title: "Revenue & Supply Intelligence,", title2: "Engineered." },
+  { id: "02", label: "Strategy", title: "See demand clearly.", title2: "Price precisely." },
+  { id: "03", label: "Execute", title: "From data to decision —", title2: "execute intelligently." },
 ];
 
 export default function Hero() {
@@ -35,15 +35,15 @@ export default function Hero() {
         {/* Top label */}
         <div className="absolute top-24 left-0 right-0 px-6 lg:px-10 pointer-events-none">
           <div className="mx-auto max-w-7xl flex items-center justify-between text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground">
-            <span>Lat 51.5074°N · Lon 0.1278°W</span>
-            <span>Network Sim · v2.4</span>
+            <span>Omnitensor Core · v3.0</span>
+            <span>Network Sim · Active</span>
           </div>
         </div>
 
         {/* Content overlay */}
         <div className="absolute inset-0 flex items-center pointer-events-none">
           <div className="mx-auto max-w-7xl w-full px-6 lg:px-10 grid grid-cols-12 gap-6">
-            <div className="col-span-12 lg:col-span-7">
+            <div className="col-span-12 lg:col-span-8">
               <div className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground mb-6 flex items-center gap-3">
                 <span className="inline-block w-8 h-px bg-foreground" />
                 <span>{stage.id} / {stage.label}</span>
@@ -57,8 +57,7 @@ export default function Hero() {
                 <span className="text-muted-foreground">{stage.title2}</span>
               </h1>
               <p className="mt-8 max-w-xl text-muted-foreground text-base md:text-lg leading-relaxed">
-                We design the analytical backbone for how goods move — from raw signal to executive decision —
-                across every node of your network.
+                We build the decision engine behind how businesses grow — connecting data, models, and execution from signal to strategy across revenue and supply chains.
               </p>
             </div>
           </div>

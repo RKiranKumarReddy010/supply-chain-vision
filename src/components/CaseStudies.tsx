@@ -2,16 +2,22 @@ import { useReveal } from "@/hooks/useReveal";
 
 const CASES = [
   {
-    sector: "Global FMCG",
-    title: "Re-architecting a 47-DC distribution network across EMEA.",
-    metric: "−$84M",
-    metricLabel: "Annual logistics spend",
+    sector: "Global FMCG Leader",
+    title: "Revenue Growth Management transformation across multi-country portfolio",
+    metric: "+6.5%",
+    metricLabel: "Net revenue uplift",
   },
   {
     sector: "Industrial Manufacturer",
-    title: "Probabilistic demand sensing for 12,000 active SKUs.",
+    title: "AI-driven demand forecasting for 12,000+ SKUs",
     metric: "+11pp",
-    metricLabel: "Forecast accuracy gain",
+    metricLabel: "Forecast accuracy",
+  },
+  {
+    sector: "Retail & Distribution Enterprise",
+    title: "End-to-end analytics platform with integrated planning tools",
+    metric: "−28%",
+    metricLabel: "Decision latency",
   },
 ];
 
@@ -32,7 +38,7 @@ export default function CaseStudies() {
           </a>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
           {CASES.map((c) => (
             <article key={c.title} className="bg-background group cursor-pointer">
               {/* Visual block */}

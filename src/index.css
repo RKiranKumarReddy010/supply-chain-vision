@@ -72,9 +72,15 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
     font-feature-settings: 'ss01', 'cv11';
     -webkit-font-smoothing: antialiased;
+    cursor: none;
+  }
+
+  /* Hide cursor globally for interactive elements as well */
+  a, button, input, select, textarea, [role="button"] {
+    cursor: none !important;
   }
 
   ::selection {

@@ -11,13 +11,12 @@ export default function Footer() {
         <div className="grid grid-cols-12 gap-10">
           <div className="col-span-12 md:col-span-4">
             <div className="flex items-center gap-2 mb-6">
-              <span className="inline-block w-2 h-2 bg-foreground rounded-full" />
               <span className="font-display text-sm tracking-[0.18em] uppercase">
-                Axis <span className="text-muted-foreground">// </span>Analytics
+                Omnitensor
               </span>
             </div>
             <p className="text-sm text-muted-foreground max-w-sm leading-relaxed">
-              Decision intelligence for the world's most complex supply chains.
+              Revenue & Supply Intelligence, Engineered.
             </p>
           </div>
           {cols.map((c) => (
@@ -35,8 +34,8 @@ export default function Footer() {
         </div>
 
         <div className="mt-20 pt-8 border-t border-border flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground">
-          <div>© {new Date().getFullYear()} Axis Analytics Ltd.</div>
-          <div>London · New York · Singapore</div>
+          <div>© {new Date().getFullYear()} Omnitensor Inc.</div>
+          <div>India, Odisha</div>
         </div>
       </div>
     </footer>

@@ -3,21 +3,27 @@ import { useReveal } from "@/hooks/useReveal";
 const SERVICES = [
   {
     n: "01",
-    t: "Supply Chain Analytics",
-    d: "Telemetry-grade visibility across every node. We unify ERP, WMS, and TMS data into a single decision surface.",
-    p: ["Network observability", "Inventory health scoring", "Lead-time variance models"],
+    t: "Revenue Growth Management",
+    d: "Turn pricing, promotion, and assortment into measurable profit drivers.",
+    p: ["Price-pack architecture", "Promotion effectiveness", "Trade spend optimization", "Demand curve modeling"],
   },
   {
     n: "02",
-    t: "Network Optimization",
-    d: "Mathematical optimization of facilities, lanes, and modes — sized to your service-level commitments.",
-    p: ["Greenfield & brownfield design", "Lane & mode optimization", "Carbon-aware routing"],
+    t: "Demand Forecasting",
+    d: "Convert uncertainty into confident, data-driven decisions.",
+    p: ["SKU-location level forecasting", "Probabilistic models", "Demand sensing", "S&OP integration"],
   },
   {
     n: "03",
-    t: "Demand Forecasting",
-    d: "Hierarchical, probabilistic forecasts that translate uncertainty into stocking and capacity decisions.",
-    p: ["SKU-location forecasts", "New-product modeling", "S&OP integration"],
+    t: "Supply Chain Analytics",
+    d: "End-to-end visibility and intelligence across your network.",
+    p: ["Network observability", "Inventory optimization", "Lead-time variability", "Data integration"],
+  },
+  {
+    n: "04",
+    t: "Software Development",
+    d: "Custom-built systems that operationalize analytics at scale.",
+    p: ["Data platforms", "Intelligence dashboards", "AI/ML deployment", "Enterprise apps"],
   },
 ];
 
@@ -32,13 +38,13 @@ export default function Services() {
           </div>
           <div className="col-span-12 md:col-span-8">
             <h2 className="font-display text-4xl md:text-6xl leading-[1.02] text-balance">
-              Three disciplines.<br />
-              <span className="text-muted-foreground">One operating system for your network.</span>
+              Four disciplines.<br />
+              <span className="text-muted-foreground">One intelligent operating system.</span>
             </h2>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-px bg-border">
           {SERVICES.map((s) => (
             <article
               key={s.n}
