@@ -452,10 +452,11 @@ function SceneInner({ progress }: { progress: number }) {
       <fog attach="fog" args={["#050505", 12, 28]} />
       <color attach="background" args={["#050505"]} />
 
-      <ambientLight intensity={0.35} />
-      <directionalLight position={[6, 10, 6]} intensity={1.2} castShadow />
-      <directionalLight position={[-8, 4, -6]} intensity={0.5} color="#ffffff" />
-      <pointLight position={[0, 2, 4]} intensity={0.6} color="#ffffff" />
+      <ambientLight intensity={0.4} />
+      <directionalLight position={[6, 10, 6]} intensity={1.4} castShadow />
+      <directionalLight position={[-8, 4, -6]} intensity={0.55} color="#ffe3cc" />
+      <pointLight position={[0, 2, 4]} intensity={0.8} color="#ffd9b8" />
+      <pointLight position={[-3, -2, 3]} intensity={0.3} color="#a8c8ff" />
 
       <Hand indexCurl={indexCurl} />
       <Phone scrollOffset={scrollOffset} activeIdx={activeIdx} />
