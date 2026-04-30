@@ -297,7 +297,6 @@ function SocialCard({
         color={active ? "#000000" : "#111111"}
         anchorX="center"
         anchorY="middle"
-        fontWeight="bold"
       >
         {social.icon}
       </Text>
