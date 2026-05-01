@@ -41,7 +41,7 @@ export default function Hero() {
         </div>
 
         {/* Content overlay */}
-        <div className="absolute inset-0 flex items-center pointer-events-none">
+        <div className="absolute inset-0 flex items-start pt-32 md:pt-0 md:items-center pointer-events-none z-10">
           <div className="mx-auto max-w-7xl w-full px-6 lg:px-10 grid grid-cols-12 gap-6">
             <div className="col-span-12 lg:col-span-8">
               <div className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground mb-6 flex items-center gap-3">
@@ -50,7 +50,7 @@ export default function Hero() {
               </div>
               <h1
                 key={stageIdx}
-                className="font-display text-5xl md:text-7xl lg:text-[5.5rem] leading-[0.95] text-balance animate-fade-in"
+                className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] leading-[0.95] text-balance animate-fade-in"
               >
                 {stage.title}
                 <br />
@@ -66,10 +66,10 @@ export default function Hero() {
         {/* Bottom progress bar + stages */}
         <div className="absolute bottom-0 inset-x-0 px-6 lg:px-10 pb-8">
           <div className="mx-auto max-w-7xl">
-            <div className="flex items-end justify-between mb-3 text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground">
+            <div className="flex items-end justify-between mb-3 text-[10px] sm:text-xs font-mono uppercase tracking-[0.1em] sm:tracking-[0.2em] text-muted-foreground">
               {STAGES.map((s, i) => (
                 <span key={s.id} className={i === stageIdx ? "text-foreground" : ""}>
-                  {s.id} · {s.label}
+                  {s.id} <span className="hidden sm:inline">· {s.label}</span>
                 </span>
               ))}
             </div>

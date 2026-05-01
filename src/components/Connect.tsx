@@ -42,11 +42,11 @@ export default function Connect() {
         {/* Headings overlay */}
         <div className="absolute top-0 inset-x-0 px-6 lg:px-10 pt-24 pointer-events-none z-10">
           <div className="mx-auto max-w-7xl">
-            <div className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground mb-6 flex items-center gap-3">
+            <div className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.25em] text-muted-foreground mb-6 flex items-center gap-3">
               <span className="inline-block w-8 h-px bg-foreground" />
               <span>Connect · Walk with us</span>
             </div>
-            <h2 className="font-display text-5xl md:text-7xl leading-[0.95] text-balance max-w-4xl">
+            <h2 className="font-display text-4xl md:text-7xl leading-[0.95] text-balance max-w-4xl">
               Carry the conversation.<br />
               <span className="text-muted-foreground">Find us anywhere.</span>
             </h2>
@@ -64,9 +64,9 @@ export default function Connect() {
         </div>
 
         {/* Bottom social chips that pop up one-by-one */}
-        <div className="absolute bottom-0 inset-x-0 px-6 lg:px-10 pb-12 z-10">
+        <div className="absolute bottom-0 inset-x-0 px-4 sm:px-6 lg:px-10 pb-12 z-10">
           <div className="mx-auto max-w-7xl">
-            <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center justify-center gap-2 sm:gap-3 md:gap-4">
               {SOCIALS.map((s, i) => {
                 const visible = i < visibleCount;
                 return (
@@ -75,7 +75,7 @@ export default function Connect() {
                     href={s.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="group flex items-center gap-3 border border-border-strong bg-background/60 backdrop-blur-md px-5 py-3 hover:bg-foreground hover:text-background transition-all duration-500"
+                    className="group flex items-center justify-between sm:justify-start gap-3 border border-border-strong bg-background/60 backdrop-blur-md px-4 py-2 sm:px-5 sm:py-3 hover:bg-foreground hover:text-background transition-all duration-500"
                     style={{
                       opacity: visible ? 1 : 0,
                       transform: visible ? "translateY(0) scale(1)" : "translateY(24px) scale(0.9)",
@@ -85,14 +85,16 @@ export default function Connect() {
                       transitionDelay: visible ? `${i * 60}ms` : "0ms",
                     }}
                   >
-                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground group-hover:text-background/70">
-                      {s.icon}
-                    </span>
-                    <span className="font-display text-base">{s.name}</span>
-                    <span className="font-mono text-xs text-muted-foreground group-hover:text-background/70">
-                      {s.handle}
-                    </span>
-                    <span className="text-base">→</span>
+                    <div className="flex items-center gap-3">
+                      <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground group-hover:text-background/70">
+                        {s.icon}
+                      </span>
+                      <span className="font-display text-sm sm:text-base">{s.name}</span>
+                      <span className="font-mono text-[10px] sm:text-xs text-muted-foreground group-hover:text-background/70 hidden sm:inline-block">
+                        {s.handle}
+                      </span>
+                    </div>
+                    <span className="text-sm sm:text-base">→</span>
                   </a>
                 );
               })}

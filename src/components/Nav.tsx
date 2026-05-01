@@ -15,7 +15,7 @@ export default function Nav() {
         scrolled ? "bg-background/80 backdrop-blur-md border-b border-border" : "bg-transparent"
       }`}
     >
-      <nav className="mx-auto max-w-7xl px-6 lg:px-10 h-16 flex items-center justify-between">
+      <nav className="mx-auto max-w-7xl px-4 lg:px-10 h-14 md:h-16 flex items-center justify-between">
         <a href="#top" className="flex items-center group relative z-50 w-16 h-10">
           <div className="absolute top-1/2 left-2 -translate-y-1/2 w-20 text-foreground drop-shadow-xl group-hover:scale-105 transition-transform duration-500">
             <svg viewBox="0 0 200 150" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
@@ -46,7 +46,7 @@ export default function Nav() {
         </ul>
         <a
           href="#contact"
-          className="text-xs uppercase tracking-[0.18em] border border-border-strong px-4 py-2 hover:bg-foreground hover:text-background transition-colors"
+          className="text-[10px] md:text-xs uppercase tracking-[0.18em] border border-border-strong px-4 py-2 hover:bg-foreground hover:text-background transition-colors"
         >
           Book a consult →
         </a>

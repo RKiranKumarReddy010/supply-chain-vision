@@ -20,7 +20,7 @@ export default function Footer() {
             </p>
           </div>
           {cols.map((c) => (
-            <div key={c.h} className="col-span-6 md:col-span-2">
+            <div key={c.h} className="col-span-12 sm:col-span-6 md:col-span-2">
               <div className="text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground mb-5">{c.h}</div>
               <ul className="space-y-3 text-sm">
                 {c.l.map((x) => (
