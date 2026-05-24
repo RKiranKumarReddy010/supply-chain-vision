@@ -4,10 +4,10 @@ import { useScrollProgress } from "@/hooks/useScrollProgress";
 const PhoneInHand = lazy(() => import("./three/PhoneInHand"));
 
 const SOCIALS = [
-  { name: "Instagram", handle: "@omnitensor", url: "https://instagram.com/", icon: "IG" },
-  { name: "Facebook", handle: "/omnitensor", url: "https://facebook.com/", icon: "FB" },
-  { name: "Twitter / X", handle: "@omnitensor", url: "https://twitter.com/", icon: "X" },
-  { name: "LinkedIn", handle: "/company/omnitensor", url: "https://linkedin.com/", icon: "IN" },
+  { name: "Instagram", handle: "@OMNITENSORSs", url: "https://www.instagram.com/OMNITENSORSs/", icon: "IG" },
+  { name: "Facebook", handle: "/OMNITENSORSs", url: "https://www.facebook.com/share/1CQLGujhx4/", icon: "FB" },
+  { name: "Twitter / X", handle: "@OMNITENSORSs", url: "https://x.com/OMNITENSORSs", icon: "X" },
+  { name: "LinkedIn", handle: "/company/OMNITENSORSspvtltd", url: "https://www.linkedin.com/company/OMNITENSORSpvtltd", icon: "IN" },
 ];
 
 export default function Connect() {

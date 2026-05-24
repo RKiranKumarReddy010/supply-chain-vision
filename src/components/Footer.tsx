@@ -1,3 +1,5 @@
+import SocialLinks from "./SocialLinks";
+
 export default function Footer() {
   const cols = [
     { h: "Company", l: ["About", "Careers", "Press", "Contact"] },
@@ -12,7 +14,7 @@ export default function Footer() {
           <div className="col-span-12 md:col-span-4">
             <div className="flex items-center gap-2 mb-6">
               <span className="font-display text-sm tracking-[0.18em] uppercase">
-                Omnitensor
+                OMNITENSORS
               </span>
             </div>
             <p className="text-sm text-muted-foreground max-w-sm leading-relaxed">
@@ -34,8 +36,11 @@ export default function Footer() {
         </div>
 
         <div className="mt-20 pt-8 border-t border-border flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground">
-          <div>© {new Date().getFullYear()} Omnitensor Inc.</div>
-          <div>India, Odisha</div>
+          <div>© {new Date().getFullYear()} OMNITENSORS Inc.</div>
+          <div className="flex items-center gap-6">
+            <div>India, Odisha</div>
+            <SocialLinks />
+          </div>
         </div>
       </div>
     </footer>

@@ -1,6 +1,6 @@
-# Omnitensor — Revenue & Supply Intelligence, Engineered
+# OMNITENSORS — Revenue & Supply Intelligence, Engineered
 
-Omnitensor is a consulting and technology partner that transforms complex commercial and supply ecosystems into measurable growth through revenue optimization, demand intelligence, and scalable software systems.
+OMNITENSORS is a consulting and technology partner that transforms complex commercial and supply ecosystems into measurable growth through revenue optimization, demand intelligence, and scalable software systems.
 
 ---
 
@@ -8,7 +8,7 @@ Omnitensor is a consulting and technology partner that transforms complex commer
 
 **See demand clearly. Price precisely. Execute intelligently.**
 
-Omnitensor builds the decision engine behind how businesses grow — connecting data, models, and execution from signal to strategy across revenue and supply chains.
+OMNITENSORS builds the decision engine behind how businesses grow — connecting data, models, and execution from signal to strategy across revenue and supply chains.
 
 ---
 

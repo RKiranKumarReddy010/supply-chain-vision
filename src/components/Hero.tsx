@@ -35,7 +35,7 @@ export default function Hero() {
         {/* Top label */}
         <div className="absolute top-24 left-0 right-0 px-6 lg:px-10 pointer-events-none">
           <div className="mx-auto max-w-7xl flex items-center justify-between text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground">
-            <span>Omnitensor Core · v3.0</span>
+            <span>OMNITENSORS Core · v3.0</span>
             <span>Network Sim · Active</span>
           </div>
         </div>
