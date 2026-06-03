@@ -5,15 +5,49 @@ import { toast } from "sonner";
 export default function CTA() {
   const ref = useReveal();
   const [email, setEmail] = useState("");
-  const submit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email.includes("@")) {
+    const trimmedEmail = email.trim();
+    if (!trimmedEmail || !trimmedEmail.includes("@")) {
       toast.error("Please enter a valid work email.");
       return;
     }
-    toast.success("Thanks — we'll be in touch within one business day.");
-    setEmail("");
+
+    setIsSubmitting(true);
+    const toastId = toast.loading("Sending your request...");
+
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: trimmedEmail }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success(data.message || "Thanks — we'll be in touch within one business day.", {
+          id: toastId,
+        });
+        setEmail("");
+      } else {
+        toast.error(data.error || "Unable to send. Please try again.", {
+          id: toastId,
+        });
+      }
+    } catch (error) {
+      toast.error("Network error. Please try again.", {
+        id: toastId,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
 
   return (
     <section id="contact" className="bg-foreground text-background relative overflow-hidden">
@@ -33,16 +67,18 @@ export default function CTA() {
             <input
               type="email"
               required
+              disabled={isSubmitting}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="your@company.com"
-              className="flex-1 bg-transparent border-b border-background/40 sm:border-none py-4 px-2 sm:px-0 outline-none placeholder:opacity-50 text-base focus:border-background transition-colors"
+              className="flex-1 bg-transparent border-b border-background/40 sm:border-none py-4 px-2 sm:px-0 outline-none placeholder:opacity-50 text-base focus:border-background transition-colors disabled:opacity-50"
             />
             <button
               type="submit"
-              className="text-xs uppercase tracking-[0.2em] py-4 px-6 bg-background/10 hover:bg-background/20 sm:bg-transparent sm:hover:bg-transparent sm:hover:opacity-70 transition-all self-stretch sm:self-auto text-center"
+              disabled={isSubmitting}
+              className="text-xs uppercase tracking-[0.2em] py-4 px-6 bg-background/10 hover:bg-background/20 sm:bg-transparent sm:hover:bg-transparent sm:hover:opacity-70 transition-all self-stretch sm:self-auto text-center disabled:opacity-50"
             >
-              Request brief →
+              {isSubmitting ? "Sending..." : "Request brief →"}
             </button>
           </form>
         </div>
