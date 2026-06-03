@@ -1,7 +1,7 @@
 {
   "version": 2,
   "functions": {
-    "server.cjs": {
+    "api/index.js": {
       "memory": 1024,
       "maxDuration": 10
     }
@@ -9,7 +9,7 @@
   "rewrites": [
     {
       "source": "/api/send-email",
-      "destination": "/server.cjs"
+      "destination": "/api/index.js"
     },
     {
       "source": "/(.*)",
