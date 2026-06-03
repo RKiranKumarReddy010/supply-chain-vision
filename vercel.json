@@ -1,15 +1,19 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "server.cjs",
-      "use": "@vercel/node"
+  "functions": {
+    "server.cjs": {
+      "memory": 1024,
+      "maxDuration": 10
     }
-  ],
+  },
   "rewrites": [
     {
-      "source": "/api/(.*)",
+      "source": "/api/send-email",
       "destination": "/server.cjs"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/dist/$1"
     }
   ]
 }
