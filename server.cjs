@@ -228,7 +228,7 @@ if (!isProd) {
   console.log('[Server] Running in production static fallback mode...');
   const distPath = path.join(__dirname, 'dist');
   app.use(express.static(distPath));
-  app.use('*', (req, res) => {
+  app.use((req, res) => {
     res.sendFile(path.join(distPath, 'index.html'));
   });
 }
