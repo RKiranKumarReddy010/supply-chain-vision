@@ -12,14 +12,6 @@
       "destination": "/api/index.js"
     },
     {
-      "source": "/products/BHScope",
-      "destination": "https://omni-tensors-dashboard-as5u.vercel.app/products/BHScope"
-    },
-    {
-      "source": "/products/BHScope/:path*",
-      "destination": "https://omnitensors-dashboard.vercel.app/products/BHScope/:path*"
-    },
-    {
       "source": "/products",
       "destination": "/index.html"
     },
