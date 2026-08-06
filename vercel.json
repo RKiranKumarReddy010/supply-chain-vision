@@ -20,6 +20,10 @@
       "destination": "/index.html"
     },
     {
+      "source": "/products/LeadForge/:path*",
+      "destination": "/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/dist/$1"
     }
