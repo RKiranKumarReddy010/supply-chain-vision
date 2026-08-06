@@ -1,5 +1,6 @@
 import { useRef, Suspense, lazy } from "react";
 import { useScrollProgress } from "@/hooks/useScrollProgress";
+import Marquee from "./Marquee";
 
 const SupplyChainScene = lazy(() => import("./three/SupplyChainScene"));
 
@@ -35,7 +36,7 @@ export default function Hero() {
         {/* Top label */}
         <div className="absolute top-24 left-0 right-0 px-6 lg:px-10 pointer-events-none">
           <div className="mx-auto max-w-7xl flex items-center justify-between text-xs font-mono uppercase tracking-[0.2em] text-muted-foreground">
-            <span>OMNITENSORS Core · v3.0</span>
+            <span>OMNITENSORS Core ·</span>
             <span>Network Sim · Active</span>
           </div>
         </div>
@@ -44,10 +45,6 @@ export default function Hero() {
         <div className="absolute inset-0 flex items-start pt-32 md:pt-0 md:items-center pointer-events-none z-10">
           <div className="mx-auto max-w-7xl w-full px-6 lg:px-10 grid grid-cols-12 gap-6 pb-24 md:pb-20">
             <div className="col-span-12 lg:col-span-8">
-              <div className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground mb-6 flex items-center gap-3">
-                <span className="inline-block w-8 h-px bg-foreground" />
-                <span>{stage.id} / {stage.label}</span>
-              </div>
               <h1
                 key={stageIdx}
                 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-[4.75rem] leading-[0.98] text-balance animate-fade-in"
@@ -56,15 +53,12 @@ export default function Hero() {
                 <br />
                 <span className="text-muted-foreground">{stage.title2}</span>
               </h1>
-              <p className="mt-6 md:mt-8 max-w-xl text-muted-foreground text-sm md:text-lg leading-relaxed">
-                OmniTensors helps FMCG and retail businesses plan demand, forecast sales at SKU level, and grow net revenue — connecting data, models, and execution across revenue and supply chains.
-              </p>
             </div>
           </div>
         </div>
 
-        {/* Bottom progress bar + stages */}
-        <div className="absolute bottom-0 inset-x-0 px-6 lg:px-10 pb-8">
+        {/* Bottom progress bar + stages (cleared above the marquee band) */}
+        <div className="absolute bottom-0 inset-x-0 px-6 lg:px-10 pb-16 md:pb-20">
           <div className="mx-auto max-w-7xl">
             <div className="grid grid-cols-3 mb-3 text-[10px] sm:text-xs font-mono uppercase tracking-[0.1em] sm:tracking-[0.2em] text-muted-foreground">
               {STAGES.map((s, i) => (
@@ -88,6 +82,11 @@ export default function Hero() {
               Scroll to advance shipment →
             </div>
           </div>
+        </div>
+
+        {/* Marquee — full width band at the very bottom of the hero */}
+        <div className="absolute bottom-0 inset-x-0 z-20">
+          <Marquee />
         </div>
       </div>
     </section>

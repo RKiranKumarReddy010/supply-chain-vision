@@ -15,9 +15,9 @@ const SERVICES = [
   },
   {
     n: "03",
-    t: "Supply Chain & Inventory Optimization",
-    d: "End-to-end visibility and intelligence across your commercial supply chain — balanced inventory at the right store and warehouse.",
-    p: ["Inventory Optimization", "Point-of-Sale Analytics", "Distribution Channel Analytics", "Sales Forecasting"],
+    t: "Supply Chain Solutions",
+    d: "Modular supply chain solutions with end-to-end visibility across lead times, safety stock, and distribution networks — balanced inventory at the right store and warehouse.",
+    p: ["Inventory Optimization", "Supply Chain Solution", "Distribution Channel Analytics", "Sales Forecasting"],
   },
   {
     n: "04",
@@ -38,12 +38,15 @@ export default function Services() {
           </div>
           <div className="col-span-12 md:col-span-8">
             <h2 className="font-display text-4xl md:text-6xl leading-[1.02] text-balance">
-              Enterprise Demand Forecasting &<br />
-              <span className="text-muted-foreground">SKU Optimization</span>
+              Predictive Demand Planning &<br />
+              <span className="text-muted-foreground">Sales Forecasting Engine</span>
             </h2>
             <h2 className="mt-6 font-display text-2xl md:text-3xl leading-[1.02] text-balance">
-              Revenue Growth Management (RGM) & Trade Spend Analytics
+              Revenue Growth Management (RGM) & Supply Chain Solutions
             </h2>
+            <p className="mt-6 max-w-2xl text-muted-foreground leading-relaxed">
+              Our <strong className="font-semibold text-foreground">demand planning</strong> analytics engine reduces forecast error at SKU level, while our <strong className="font-semibold text-foreground">RGM solutions</strong> optimize price-pack architecture and trade promotion spend. Together they give enterprise teams a complete <strong className="font-semibold text-foreground">supply chain solution</strong> — demand planning, sales forecasting, and revenue growth management in one operating system.
+            </p>
           </div>
         </div>
 

@@ -116,6 +116,20 @@
     background: radial-gradient(ellipse at center, transparent 40%, hsl(var(--background)) 90%);
   }
 
+  .marquee-track {
+    animation: marquee 60s linear infinite;
+    will-change: transform;
+  }
+  .marquee-track:hover {
+    animation-play-state: running;
+    animation-duration: 60s;
+    animation-timing-function: linear;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
   .reveal {
     opacity: 0;
     transform: translateY(16px);
