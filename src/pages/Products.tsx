@@ -12,10 +12,10 @@ export default function Products() {
             <span>Our Products</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-[1.1] tracking-tight">
-            Everything we build to grow your business
+            OmniTensors products for demand planning & sales forecasting
           </h1>
           <p className="text-lg text-muted-foreground mt-4 max-w-2xl leading-relaxed">
-            From AI-powered inventory optimization to strategic consulting — explore our full suite of products engineered for commercial excellence.
+            From AI-powered inventory optimization to SKU-level forecasting and revenue growth management — explore our suite of FMCG and retail analytics products engineered for commercial excellence.
           </p>
         </div>
 
@@ -36,11 +36,11 @@ export default function Products() {
                     BHScope
                   </h2>
                   <p className="text-sm text-muted-foreground font-mono mt-1">
-                    Predictive Sales & Warehouse Inventory Planner
+                    SKU-Level Demand Planning & Point-of-Sale Analytics
                   </p>
                 </div>
                 <p className="text-muted-foreground text-base leading-relaxed font-light">
-                  An intelligent SaaS platform that aligns store sales with warehouse supply. Predict customer demand, set profitable discounts, prevent stockouts, and connect marketing teams with logistics in real-time.
+                  An intelligent SaaS platform for demand planning that aligns store sales with warehouse supply. Predict customer demand with demand sensing, set profitable discounts with revenue growth management, prevent stockouts, and connect marketing teams with logistics in real-time.
                 </p>
               </div>
 
@@ -52,7 +52,7 @@ export default function Products() {
                   </span>
                   <div className="mt-3 space-y-2">
                     {[
-                      "Seasonal Sales Forecaster — 98% precision",
+                      "Seasonal Sales Forecaster — 98% forecast accuracy",
                       "Promotion Demand Scanner",
                       "Warehouse Stock Protector — zero stockouts",
                       "Pricing & Margin Optimizer — +8% profit expansion",
@@ -175,14 +175,14 @@ export default function Products() {
                 </div>
                 <div>
                   <h2 className="text-3xl font-extrabold text-foreground tracking-tight">
-                    OMNITENSORS Consulting
+                    OMNITENSORS Consulting — Demand Planning & RGM
                   </h2>
                   <p className="text-sm text-muted-foreground font-mono mt-1">
-                    Revenue & Supply Chain Consulting
+                    Revenue Growth Management & Forecast Accuracy Consulting
                   </p>
                 </div>
                 <p className="text-muted-foreground text-base leading-relaxed font-light">
-                  Transform complex commercial and supply ecosystems into measurable growth through Revenue Optimization, Demand Intelligence, and Scalable Software Systems.
+                  Transform complex commercial and supply ecosystems into measurable growth through demand planning, revenue growth management, price elasticity modeling, and FMCG analytics.
                 </p>
               </div>
 
@@ -195,9 +195,9 @@ export default function Products() {
                   <div className="mt-3 space-y-2">
                     {[
                       "Revenue Growth Management",
-                      "Demand Forecasting — 12,000+ SKUs",
-                      "Supply Chain Analytics — 32% avg. cost reduction",
-                      "Custom Software Development",
+                      "SKU-Level Demand Forecasting — 12,000+ SKUs",
+                      "Inventory Optimization — 32% avg. cost reduction",
+                      "Quick Commerce & Distribution Analytics",
                     ].map((f) => (
                       <div key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
                         <span className="text-indigo-400 mt-0.5 shrink-0">▸</span>

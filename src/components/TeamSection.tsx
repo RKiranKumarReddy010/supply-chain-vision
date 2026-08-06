@@ -20,8 +20,8 @@ export default function TeamSection() {
           </div>
           <div className="col-span-12 md:col-span-8">
             <h2 className="font-display text-4xl md:text-6xl leading-[1.02] text-balance">
-              The people<br />
-              <span className="text-muted-foreground">behind the decisions.</span>
+              The OmniTensors Analytics team<br />
+              <span className="text-muted-foreground">behind the demand decisions.</span>
             </h2>
           </div>
         </div>

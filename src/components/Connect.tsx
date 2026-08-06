@@ -47,7 +47,7 @@ export default function Connect() {
               <span>Connect · Walk with us</span>
             </div>
             <h2 className="font-display text-4xl md:text-7xl leading-[0.95] text-balance max-w-4xl">
-              Carry the conversation.<br />
+              OmniTensors Analytics.<br />
               <span className="text-muted-foreground">Find us anywhere.</span>
             </h2>
             <p className="mt-6 max-w-md text-muted-foreground text-base leading-relaxed">

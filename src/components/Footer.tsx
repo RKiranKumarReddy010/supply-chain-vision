@@ -2,10 +2,10 @@ import SocialLinks from "./SocialLinks";
 
 export default function Footer() {
   const cols = [
-    { h: "Company", l: ["About", "Careers", "Press", "Contact"] },
-    { h: "Services", l: ["Analytics", "Network design", "Forecasting", "S&OP"] },
-    { h: "Resources", l: ["Insights", "Case studies", "Whitepapers", "Glossary"] },
-    { h: "Legal", l: ["Privacy", "Terms", "Cookies", "Security"] },
+    { h: "Capabilities", l: ["Demand Planning", "Sales Forecasting", "SKU-Level Forecasting", "Inventory Optimization"] },
+    { h: "RGM", l: ["Revenue Growth Management", "Trade Spend Optimization", "Price Elasticity Modeling", "Net Revenue Management"] },
+    { h: "Industries", l: ["FMCG Analytics", "Retail Business Intelligence", "Mid-Retail Analytics", "Quick Commerce"] },
+    { h: "Company", l: ["About", "Team", "Careers", "Contact"] },
   ];
   return (
     <footer className="bg-background border-t border-border">
@@ -18,7 +18,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm text-muted-foreground max-w-sm leading-relaxed">
-              Revenue & Supply Intelligence, Engineered.
+              Demand planning, sales forecasting & revenue growth management analytics for FMCG and retail. See demand clearly. Price precisely. Execute intelligently.
             </p>
           </div>
           {cols.map((c) => (
@@ -27,7 +27,12 @@ export default function Footer() {
               <ul className="space-y-3 text-sm">
                 {c.l.map((x) => (
                   <li key={x}>
-                    <a href="#" className="hover:text-foreground text-foreground/80 transition-colors">{x}</a>
+                    <a
+                      href={x === "Team" ? "/team" : "#"}
+                      className="hover:text-foreground text-foreground/80 transition-colors"
+                    >
+                      {x}
+                    </a>
                   </li>
                 ))}
               </ul>

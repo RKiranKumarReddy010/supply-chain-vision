@@ -56,12 +56,12 @@ export default function CTA() {
         <div className="col-span-12 md:col-span-7">
           <div className="text-xs font-mono uppercase tracking-[0.25em] opacity-60 mb-6 md:mb-8">Begin</div>
           <h2 className="font-display text-3xl md:text-6xl lg:text-7xl leading-[1.02] text-balance">
-            Ready to optimize<br />your network?
+            Ready to optimize<br />your demand & margins?
           </h2>
         </div>
         <div className="col-span-12 md:col-span-5 flex flex-col justify-end">
           <p className="opacity-70 mb-8 max-w-md">
-            Tell us where it hurts. We'll respond with a 30-minute diagnostic on the house.
+            Tell us where sales forecasting or pricing hurts. We'll respond with a 30-minute demand planning diagnostic on the house.
           </p>
           <form onSubmit={submit} className="flex flex-col sm:flex-row gap-2 sm:gap-0 border-none sm:border-b sm:border-background/40 sm:focus-within:border-background transition-colors">
             <input

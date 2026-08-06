@@ -3,19 +3,19 @@ import { useReveal } from "@/hooks/useReveal";
 const CASES = [
   {
     sector: "Global FMCG Leader",
-    title: "Revenue Growth Management transformation across multi-country portfolio",
+    title: "Revenue growth management & trade spend optimization across multi-country portfolio",
     metric: "+6.5%",
     metricLabel: "Net revenue uplift",
   },
   {
     sector: "Industrial Manufacturer",
-    title: "AI-driven demand forecasting for 12,000+ SKUs",
+    title: "SKU-level probabilistic forecasting for 12,000+ SKUs",
     metric: "+11pp",
     metricLabel: "Forecast accuracy",
   },
   {
     sector: "Retail & Distribution Enterprise",
-    title: "End-to-end analytics platform with integrated planning tools",
+    title: "Point-of-sale analytics and inventory optimization platform",
     metric: "−28%",
     metricLabel: "Decision latency",
   },

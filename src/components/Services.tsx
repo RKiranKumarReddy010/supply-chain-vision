@@ -3,27 +3,27 @@ import { useReveal } from "@/hooks/useReveal";
 const SERVICES = [
   {
     n: "01",
-    t: "Revenue Growth Management",
-    d: "Turn pricing, promotion, and assortment into measurable profit drivers.",
-    p: ["Price-pack architecture", "Promotion effectiveness", "Trade spend optimization", "Demand curve modeling"],
+    t: "Demand Planning & Sales Forecasting",
+    d: "Convert uncertainty into confident decisions — SKU-level sales forecasting, demand sensing, and S&OP planning you can run a business on.",
+    p: ["SKU-Level Forecasting", "Probabilistic Forecasting", "Demand Sensing", "S&OP Planning", "Forecast Accuracy"],
   },
   {
     n: "02",
-    t: "Demand Forecasting",
-    d: "Convert uncertainty into confident, data-driven decisions.",
-    p: ["SKU-location level forecasting", "Probabilistic models", "Demand sensing", "S&OP integration"],
+    t: "Revenue Growth Management",
+    d: "Turn pricing, promotion, and assortment into measurable profit — RGM analytics, trade spend optimization, and net revenue management.",
+    p: ["Price Elasticity Modeling", "Price Pack Architecture", "Trade Spend Optimization", "Promotion Incrementality", "Margin Optimization"],
   },
   {
     n: "03",
-    t: "Supply Chain Analytics",
-    d: "End-to-end visibility and intelligence across your network.",
-    p: ["Network observability", "Inventory optimization", "Lead-time variability", "Data integration"],
+    t: "Supply Chain & Inventory Optimization",
+    d: "End-to-end visibility and intelligence across your commercial supply chain — balanced inventory at the right store and warehouse.",
+    p: ["Inventory Optimization", "Point-of-Sale Analytics", "Distribution Channel Analytics", "Sales Forecasting"],
   },
   {
     n: "04",
-    t: "Software Development",
-    d: "Custom-built systems that operationalize analytics at scale.",
-    p: ["Data platforms", "Intelligence dashboards", "AI/ML deployment", "Enterprise apps"],
+    t: "FMCG & Retail Analytics",
+    d: "Custom-built analytics for FMCG, retail business intelligence, and quick commerce — operationalized at scale.",
+    p: ["FMCG Analytics", "Retail Business Intelligence", "Mid-Retail Analytics", "Time-Series Analytics", "Custom Software"],
   },
 ];
 
@@ -38,8 +38,11 @@ export default function Services() {
           </div>
           <div className="col-span-12 md:col-span-8">
             <h2 className="font-display text-4xl md:text-6xl leading-[1.02] text-balance">
-              Four disciplines.<br />
-              <span className="text-muted-foreground">One intelligent operating system.</span>
+              Enterprise Demand Forecasting &<br />
+              <span className="text-muted-foreground">SKU Optimization</span>
+            </h2>
+            <h2 className="mt-6 font-display text-2xl md:text-3xl leading-[1.02] text-balance">
+              Revenue Growth Management (RGM) & Trade Spend Analytics
             </h2>
           </div>
         </div>

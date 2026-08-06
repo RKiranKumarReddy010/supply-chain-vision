@@ -1,10 +1,10 @@
 import { useReveal } from "@/hooks/useReveal";
 
 const STEPS = [
-  { n: "01", t: "Diagnose", d: "Map current-state flows, costs, and service. Identify the constraints that matter." },
-  { n: "02", t: "Model", d: "Build digital twins of your network. Simulate scenarios at decision-grade fidelity." },
-  { n: "03", t: "Optimize", d: "Run multi-objective optimization. Balance cost, service, and carbon together." },
-  { n: "04", t: "Operate", d: "Embed dashboards and decision agents into the daily rhythm of your operations." },
+  { n: "01", t: "Diagnose", d: "Map current-state demand, sales, and supply flows. Identify the forecasting and margin constraints that matter." },
+  { n: "02", t: "Model", d: "Build probabilistic forecasting and price elasticity models on your SKU-location data. Simulate scenarios at decision-grade fidelity." },
+  { n: "03", t: "Optimize", d: "Run demand planning and revenue growth management optimization. Balance forecast accuracy, cost, service, and margin together." },
+  { n: "04", t: "Operate", d: "Embed dashboards and demand sensing decision agents into the daily S&OP rhythm of your operations." },
 ];
 
 export default function Process() {
