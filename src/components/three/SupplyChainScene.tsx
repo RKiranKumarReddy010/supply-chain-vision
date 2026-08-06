@@ -256,9 +256,9 @@ function Truck({ curve, t }: { curve: THREE.CatmullRomCurve3; t: number }) {
       </mesh>
 
       {/* Fender skirts over rear wheels */}
-      {[-0.5, 0.5].map((x) => (
-        <mesh key={x} position={[x, 0.72, -0.68]} rotation={[0, 0, Math.PI / 2]}>
-          <cylinderGeometry args={[0.24, 0.3, 0.14, 16, 1, true, 0, Math.PI / 2]} />
+      {[-0.46, 0.46].map((x) => (
+        <mesh key={x} position={[x, 0.38, -0.775]} rotation={[0, 0, Math.PI / 2]}>
+          <cylinderGeometry args={[0.2, 0.24, 0.12, 16, 1, true, 0, Math.PI / 2]} />
           <meshStandardMaterial color="#1a1a1a" metalness={0.5} roughness={0.4} />
         </mesh>
       ))}
