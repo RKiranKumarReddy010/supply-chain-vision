@@ -16,6 +16,10 @@
       "destination": "/index.html"
     },
     {
+      "source": "/team",
+      "destination": "/index.html"
+    },
+    {
       "source": "/products/BHScope/:path*",
       "destination": "/index.html"
     },
