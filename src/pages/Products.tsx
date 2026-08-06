@@ -92,6 +92,77 @@ export default function Products() {
             </a>
           </div>
 
+          {/* LeadForge — Lead Generation */}
+          <div className="max-w-2xl mx-auto">
+            <a
+              href="/products/LeadForge"
+              className="group flex flex-col rounded-2xl border-2 border-emerald-400/40 bg-card hover:border-emerald-400/70 transition-all overflow-hidden shadow-lg shadow-emerald-500/5 hover:shadow-emerald-500/10"
+            >
+              <div className="p-8 pb-6 space-y-4">
+                <div className="h-14 w-14 rounded-xl bg-emerald-400/10 text-emerald-400 flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+                  <Zap className="h-7 w-7" />
+                </div>
+                <div>
+                  <h2 className="text-3xl font-extrabold text-foreground tracking-tight">
+                    LeadForge
+                  </h2>
+                  <p className="text-sm text-muted-foreground font-mono mt-1">
+                    Google Maps Lead Finder & AI Outreach
+                  </p>
+                </div>
+                <p className="text-muted-foreground text-base leading-relaxed font-light">
+                  Find local business leads from Google Maps with phone, website, email and location, then write personalized outreach emails with AI to fill your pipeline fast.
+                </p>
+              </div>
+
+              {/* Features */}
+              <div className="px-8 pb-6 flex-1">
+                <div className="border-t border-emerald-400/30 pt-4">
+                  <span className="text-xs font-mono text-emerald-400 uppercase tracking-wider font-semibold">
+                    Capabilities
+                  </span>
+                  <div className="mt-3 space-y-2">
+                    {[
+                      "Google Maps lead mining — phones, sites, emails",
+                      "AI-personalized outreach message generation",
+                      "Custom tone & value proposition controls",
+                      "CSV export of qualified leads",
+                    ].map((f) => (
+                      <div key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <span className="text-emerald-400 mt-0.5 shrink-0">▸</span>
+                        <span>{f}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Stats */}
+              <div className="mx-8 mb-6 p-4 rounded-xl border border-emerald-400/30 bg-emerald-400/5">
+                <div className="grid grid-cols-3 gap-4 text-center">
+                  {[
+                    { label: "Lead Accuracy", value: "98%" },
+                    { label: "Message Personalization", value: "100%" },
+                    { label: "Export Formats", value: "CSV" },
+                  ].map((s) => (
+                    <div key={s.label}>
+                      <div className="text-lg font-bold font-mono text-emerald-400">{s.value}</div>
+                      <div className="text-xs text-muted-foreground font-mono mt-0.5">{s.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* CTA */}
+              <div className="px-8 py-4 border-t border-emerald-400/30 bg-emerald-400/5 flex items-center justify-between mt-auto">
+                <span className="text-sm font-semibold text-foreground group-hover:underline">
+                  Open Lead Finder
+                </span>
+                <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:translate-x-1 transition-transform" />
+              </div>
+            </a>
+          </div>
+
           {/* OMNITENSORS Consulting — Secondary */}
           <div className="max-w-2xl mx-auto">
             <a
