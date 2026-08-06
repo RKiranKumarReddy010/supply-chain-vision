@@ -7,6 +7,7 @@ import BHScopeDashboard from "./pages/BHScopeDashboard.tsx";
 import LeadForgeDashboard from "./pages/LeadForgeDashboard.tsx";
 import Index from "./pages/Index.tsx";
 import Products from "./pages/Products.tsx";
+import Team from "./pages/Team.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import MouseIndicator from "@/components/MouseIndicator";
 
@@ -22,6 +23,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/team" element={<Team />} />
           <Route path="/products/BHScope" element={<BHScopeDashboard />} />
           <Route path="/products/LeadForge" element={<LeadForgeDashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

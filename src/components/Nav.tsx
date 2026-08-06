@@ -45,6 +45,14 @@ export default function Nav() {
           ))}
           <li>
             <a
+              href="/team"
+              className="hover:text-foreground transition-colors relative after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-foreground after:transition-all hover:after:w-full"
+            >
+              Team
+            </a>
+          </li>
+          <li>
+            <a
               href="/products"
               className="hover:text-foreground transition-colors relative after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-foreground after:transition-all hover:after:w-full font-semibold text-foreground/90"
             >

@@ -13,6 +13,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://omnitensors.in/team</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://omnitensors.in/products/BHScope</loc>
     <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
