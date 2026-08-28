@@ -1,250 +1,217 @@
-import { Link } from "react-router-dom";
-import { ArrowRight, BarChart3, Building2, TrendingUp, Warehouse, Zap } from "lucide-react";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+import { ArrowRight, Building2, Zap, CheckCircle2, ShieldCheck } from "lucide-react";
 
 export default function Products() {
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col font-sans">
-      <div className="max-w-7xl mx-auto px-4 lg:px-10 pt-28 pb-20 w-full">
-        {/* Header */}
-        <div className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-primary/20 bg-primary/5 text-primary text-xs uppercase tracking-wider font-semibold mb-4">
-            <Zap className="h-4 w-4" />
-            <span>Our Products</span>
+    <main className="min-h-screen bg-background text-foreground flex flex-col font-sans overflow-hidden w-full">
+      <Nav />
+
+      {/* Header */}
+      <section className="pt-28 pb-14 sm:pt-36 sm:pb-20 md:pt-40 md:pb-24 border-b border-border relative overflow-hidden">
+        <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
+          <div className="text-xs font-mono uppercase tracking-[0.25em] text-muted-foreground mb-3 sm:mb-4">
+            Software & Platforms
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-[1.1] tracking-tight">
-            OmniTensors products for demand planning & sales forecasting
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-display font-bold leading-[1.08] tracking-tight max-w-3xl">
+            OmniTensors Product Suite
           </h1>
-          <p className="text-lg text-muted-foreground mt-4 max-w-2xl leading-relaxed">
-            From AI-powered inventory optimization to SKU-level forecasting and revenue growth management — explore our suite of FMCG and retail analytics products engineered for commercial excellence.
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground mt-4 max-w-2xl leading-relaxed">
+            From intelligent demand sensing SaaS to automated lead generation engines — explore our specialized software built for enterprise operations.
           </p>
         </div>
+      </section>
 
-        {/* Product Cards */}
-        <div className="space-y-12">
-          {/* BHScope — Hero Product */}
-          <div className="max-w-2xl mx-auto">
-            <a
-              href="/products/BHScope"
-              className="group flex flex-col rounded-2xl border-2 border-primary/40 bg-card hover:border-primary/70 transition-all overflow-hidden shadow-lg shadow-primary/5 hover:shadow-primary/10"
-            >
-              <div className="p-8 pb-6 space-y-4">
-                <div className="h-14 w-14 rounded-xl bg-primary/10 text-primary flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-                  <BarChart3 className="h-7 w-7" />
+      {/* Product Cards Grid */}
+      <section className="py-16 sm:py-20 md:py-28 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 space-y-12 sm:space-y-16">
+          
+          {/* BHScope — Highlighted in White Card Container */}
+          <div className="bg-white text-zinc-900 rounded-3xl p-6 sm:p-8 md:p-12 border border-zinc-200 shadow-2xl">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              <div className="lg:col-span-7 space-y-5 sm:space-y-6">
+                <div className="flex items-center gap-3 flex-wrap">
+                  <span className="px-3 py-1 bg-zinc-950 text-white rounded-md text-xs font-mono font-bold uppercase tracking-wider">
+                    SaaS Platform
+                  </span>
+                  <span className="text-xs font-mono text-zinc-500 font-semibold uppercase tracking-wider">
+                    v2.4 Active Release
+                  </span>
                 </div>
+
                 <div>
-                  <h2 className="text-3xl font-extrabold text-foreground tracking-tight">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-zinc-950 tracking-tight">
                     BHScope
                   </h2>
-                  <p className="text-sm text-muted-foreground font-mono mt-1">
+                  <p className="text-xs sm:text-sm font-mono text-zinc-600 font-medium mt-1">
                     SKU-Level Demand Planning & Point-of-Sale Analytics
                   </p>
                 </div>
-                <p className="text-muted-foreground text-base leading-relaxed font-light">
-                  An intelligent SaaS platform for demand planning that aligns store sales with warehouse supply. Predict customer demand with demand sensing, set profitable discounts with revenue growth management, prevent stockouts, and connect marketing teams with logistics in real-time.
+
+                <p className="text-zinc-700 text-sm sm:text-base leading-relaxed">
+                  An algorithmic SaaS platform for demand planning that aligns localized store sales with warehouse replenishment. Predict customer demand with probabilistic models, set profitable discounts, prevent stockouts, and synchronize commercial and logistics teams in real time.
                 </p>
-              </div>
 
-              {/* Features */}
-              <div className="px-8 pb-6 flex-1">
-                <div className="border-t border-primary/30 pt-4">
-                  <span className="text-xs font-mono text-primary uppercase tracking-wider font-semibold">
-                    Capabilities
-                  </span>
-                  <div className="mt-3 space-y-2">
-                    {[
-                      "Seasonal Sales Forecaster — 98% forecast accuracy",
-                      "Promotion Demand Scanner",
-                      "Warehouse Stock Protector — zero stockouts",
-                      "Pricing & Margin Optimizer — +8% profit expansion",
-                    ].map((f) => (
-                      <div key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <span className="text-primary mt-0.5 shrink-0">▸</span>
-                        <span>{f}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Stats */}
-              <div className="mx-8 mb-6 p-4 rounded-xl border border-primary/30 bg-primary/5">
-                <div className="grid grid-cols-3 gap-4 text-center">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                   {[
-                    { label: "Avg Sales Lift", value: "+15%" },
-                    { label: "Storage Cost Cut", value: "-30%" },
-                    { label: "Margin Expansion", value: "+8%" },
-                  ].map((s) => (
-                    <div key={s.label}>
-                      <div className="text-lg font-bold font-mono text-primary">{s.value}</div>
-                      <div className="text-xs text-muted-foreground font-mono mt-0.5">{s.label}</div>
+                    "Probabilistic time-series demand forecasting",
+                    "Promotion sensitivity & uplift scanner",
+                    "Dynamic safety stock & reorder buffering",
+                    "Cross-location inventory transfer alerts",
+                  ].map((f) => (
+                    <div key={f} className="flex items-start gap-2 text-xs text-zinc-800 font-medium">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      <span>{f}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* CTA */}
-              <div className="px-8 py-4 border-t border-primary/30 bg-primary/5 flex items-center justify-between mt-auto">
-                <span className="text-sm font-semibold text-foreground group-hover:underline">
-                  Open Dashboard
-                </span>
-                <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:translate-x-1 transition-transform" />
+              {/* Right Specs Card */}
+              <div className="lg:col-span-5 bg-zinc-50 rounded-2xl p-5 sm:p-7 md:p-8 border border-zinc-200/90 flex flex-col justify-between h-full space-y-6">
+                <div>
+                  <div className="text-xs font-mono uppercase tracking-wider text-zinc-500 font-bold mb-4">
+                    Technical Specifications
+                  </div>
+                  <div className="space-y-3 font-mono text-xs">
+                    <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-zinc-200 gap-1 sm:gap-0">
+                      <span className="text-zinc-500">Granularity</span>
+                      <span className="text-zinc-900 font-semibold">SKU × Location × Daily</span>
+                    </div>
+                    <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-zinc-200 gap-1 sm:gap-0">
+                      <span className="text-zinc-500">Algorithm</span>
+                      <span className="text-zinc-900 font-semibold">Neural Time-Series & GBDT</span>
+                    </div>
+                    <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-zinc-200 gap-1 sm:gap-0">
+                      <span className="text-zinc-500">Data Formats</span>
+                      <span className="text-zinc-900 font-semibold">CSV, REST API, Webhook</span>
+                    </div>
+                    <div className="flex flex-col sm:flex-row sm:justify-between py-2 gap-1 sm:gap-0">
+                      <span className="text-zinc-500">Deployment</span>
+                      <span className="text-zinc-900 font-semibold">Cloud SaaS / Dedicated VPC</span>
+                    </div>
+                  </div>
+                </div>
+
+                <a
+                  href="/products/BHScope"
+                  className="w-full py-3.5 sm:py-4 px-6 rounded-xl bg-zinc-950 text-white font-mono uppercase text-xs tracking-[0.2em] font-bold hover:bg-zinc-800 transition-colors flex items-center justify-center gap-3"
+                >
+                  Launch Interactive Demo <ArrowRight className="w-4 h-4" />
+                </a>
               </div>
-            </a>
+            </div>
           </div>
 
-          {/* LeadForge — Lead Generation */}
-          <div className="max-w-2xl mx-auto">
-            <a
-              href="/products/LeadForge"
-              className="group flex flex-col rounded-2xl border-2 border-emerald-400/40 bg-card hover:border-emerald-400/70 transition-all overflow-hidden shadow-lg shadow-emerald-500/5 hover:shadow-emerald-500/10"
-            >
-              <div className="p-8 pb-6 space-y-4">
-                <div className="h-14 w-14 rounded-xl bg-emerald-400/10 text-emerald-400 flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-                  <Zap className="h-7 w-7" />
+          {/* LeadForge & Consulting 2-Column Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+            
+            {/* LeadForge */}
+            <div className="rounded-3xl border border-border bg-card p-6 sm:p-8 md:p-10 flex flex-col justify-between hover:border-emerald-400/50 transition-all">
+              <div className="space-y-5 sm:space-y-6">
+                <div className="flex items-center justify-between flex-wrap gap-2">
+                  <div className="h-12 w-12 rounded-xl bg-emerald-400/10 text-emerald-400 flex items-center justify-center">
+                    <Zap className="h-6 w-6" />
+                  </div>
+                  <span className="px-3 py-1 bg-emerald-500/10 text-emerald-400 rounded-md text-xs font-mono font-bold uppercase tracking-wider border border-emerald-500/20">
+                    Lead Generation
+                  </span>
                 </div>
+
                 <div>
-                  <h2 className="text-3xl font-extrabold text-foreground tracking-tight">
+                  <h2 className="text-2xl sm:text-3xl font-display font-bold text-foreground tracking-tight">
                     LeadForge
                   </h2>
-                  <p className="text-sm text-muted-foreground font-mono mt-1">
-                    Google Maps Lead Finder & AI Outreach
+                  <p className="text-xs font-mono text-muted-foreground mt-1">
+                    Google Maps Lead Finder & AI Outreach Engine
                   </p>
                 </div>
-                <p className="text-muted-foreground text-base leading-relaxed font-light">
-                  Find local business leads from Google Maps with phone, website, email and location, then write personalized outreach emails with AI to fill your pipeline fast.
+
+                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
+                  Find local business leads from Google Maps with phone, website, email, and coordinates, then generate personalized outreach copy with AI to accelerate B2B pipeline development.
                 </p>
-              </div>
 
-              {/* Features */}
-              <div className="px-8 pb-6 flex-1">
-                <div className="border-t border-emerald-400/30 pt-4">
-                  <span className="text-xs font-mono text-emerald-400 uppercase tracking-wider font-semibold">
-                    Capabilities
-                  </span>
-                  <div className="mt-3 space-y-2">
-                    {[
-                      "Google Maps lead mining — phones, sites, emails",
-                      "AI-personalized outreach message generation",
-                      "Custom tone & value proposition controls",
-                      "CSV export of qualified leads",
-                    ].map((f) => (
-                      <div key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <span className="text-emerald-400 mt-0.5 shrink-0">▸</span>
-                        <span>{f}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Stats */}
-              <div className="mx-8 mb-6 p-4 rounded-xl border border-emerald-400/30 bg-emerald-400/5">
-                <div className="grid grid-cols-3 gap-4 text-center">
+                <div className="space-y-2 pt-2">
                   {[
-                    { label: "Lead Accuracy", value: "98%" },
-                    { label: "Message Personalization", value: "100%" },
-                    { label: "Export Formats", value: "CSV" },
-                  ].map((s) => (
-                    <div key={s.label}>
-                      <div className="text-lg font-bold font-mono text-emerald-400">{s.value}</div>
-                      <div className="text-xs text-muted-foreground font-mono mt-0.5">{s.label}</div>
+                    "Google Maps lead mining across target regions",
+                    "AI personalized email message generation",
+                    "Configurable value proposition & tone settings",
+                    "Instant CSV export for CRM pipelines",
+                  ].map((f) => (
+                    <div key={f} className="flex items-start gap-2 text-xs text-zinc-300">
+                      <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                      <span>{f}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* CTA */}
-              <div className="px-8 py-4 border-t border-emerald-400/30 bg-emerald-400/5 flex items-center justify-between mt-auto">
-                <span className="text-sm font-semibold text-foreground group-hover:underline">
-                  Open Lead Finder
-                </span>
-                <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:translate-x-1 transition-transform" />
+              <div className="pt-6 sm:pt-8 mt-6 sm:mt-8 border-t border-border">
+                <a
+                  href="/products/LeadForge"
+                  className="inline-flex items-center gap-2 text-xs font-mono uppercase font-bold text-emerald-400 hover:underline"
+                >
+                  Open Lead Finder Tool <ArrowRight className="w-3.5 h-3.5" />
+                </a>
               </div>
-            </a>
-          </div>
+            </div>
 
-          {/* OMNITENSORS Consulting — Secondary */}
-          <div className="max-w-2xl mx-auto">
-            <a
-              href="/#services"
-              className="group flex flex-col rounded-2xl border border-border/40 bg-card hover:border-indigo-400/40 transition-all overflow-hidden"
-            >
-              <div className="p-8 pb-6 space-y-4">
-                <div className="h-14 w-14 rounded-xl bg-indigo-400/10 text-indigo-400 flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-                  <Building2 className="h-7 w-7" />
+            {/* Consulting & Custom Engagements */}
+            <div className="rounded-3xl border border-border bg-card p-6 sm:p-8 md:p-10 flex flex-col justify-between hover:border-indigo-400/50 transition-all">
+              <div className="space-y-5 sm:space-y-6">
+                <div className="flex items-center justify-between flex-wrap gap-2">
+                  <div className="h-12 w-12 rounded-xl bg-indigo-400/10 text-indigo-400 flex items-center justify-center">
+                    <Building2 className="h-6 w-6" />
+                  </div>
+                  <span className="px-3 py-1 bg-indigo-500/10 text-indigo-400 rounded-md text-xs font-mono font-bold uppercase tracking-wider border border-indigo-500/20">
+                    Enterprise Services
+                  </span>
                 </div>
+
                 <div>
-                  <h2 className="text-3xl font-extrabold text-foreground tracking-tight">
-                    OMNITENSORS Consulting — Demand Planning & RGM
+                  <h2 className="text-2xl sm:text-3xl font-display font-bold text-foreground tracking-tight">
+                    Custom Analytics & RGM Consulting
                   </h2>
-                  <p className="text-sm text-muted-foreground font-mono mt-1">
-                    Revenue Growth Management & Forecast Accuracy Consulting
+                  <p className="text-xs font-mono text-muted-foreground mt-1">
+                    Bespoke Algorithmic Models for Commercial Teams
                   </p>
                 </div>
-                <p className="text-muted-foreground text-base leading-relaxed font-light">
-                  Transform complex commercial and supply ecosystems into measurable growth through demand planning, revenue growth management, price elasticity modeling, and FMCG analytics.
+
+                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
+                  Partner directly with our data science team to build custom forecasting models, price elasticity simulators, and multi-echelon inventory policies calibrated to your enterprise infrastructure.
                 </p>
-              </div>
 
-              {/* Features */}
-              <div className="px-8 pb-6 flex-1">
-                <div className="border-t border-indigo-400/30 pt-4">
-                  <span className="text-xs font-mono text-indigo-400 uppercase tracking-wider font-semibold">
-                    Capabilities
-                  </span>
-                  <div className="mt-3 space-y-2">
-                    {[
-                      "Revenue Growth Management",
-                      "SKU-Level Demand Forecasting — 12,000+ SKUs",
-                      "Inventory Optimization — 32% avg. cost reduction",
-                      "Quick Commerce & Distribution Analytics",
-                    ].map((f) => (
-                      <div key={f} className="flex items-start gap-2 text-sm text-muted-foreground">
-                        <span className="text-indigo-400 mt-0.5 shrink-0">▸</span>
-                        <span>{f}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Stats */}
-              <div className="mx-8 mb-6 p-4 rounded-xl border border-indigo-400/30 bg-indigo-400/5">
-                <div className="grid grid-cols-3 gap-4 text-center">
+                <div className="space-y-2 pt-2">
                   {[
-                    { label: "Engagements", value: "120+" },
-                    { label: "Industries Served", value: "18" },
-                    { label: "Continents", value: "4" },
-                  ].map((s) => (
-                    <div key={s.label}>
-                      <div className="text-lg font-bold font-mono text-indigo-400">{s.value}</div>
-                      <div className="text-xs text-muted-foreground font-mono mt-0.5">{s.label}</div>
+                    "Custom demand sensing algorithms for proprietary data",
+                    "Trade promotion management & elasticity curves",
+                    "Warehouse network simulation & buffer sizing",
+                    "Direct integration with SAP, Oracle, and Postgres",
+                  ].map((f) => (
+                    <div key={f} className="flex items-start gap-2 text-xs text-zinc-300">
+                      <ShieldCheck className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5" />
+                      <span>{f}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* CTA */}
-              <div className="px-8 py-4 border-t border-indigo-400/30 bg-indigo-400/5 flex items-center justify-between mt-auto">
-                <span className="text-sm font-semibold text-foreground group-hover:underline">
-                  Learn More
-                </span>
-                <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:translate-x-1 transition-transform" />
+              <div className="pt-6 sm:pt-8 mt-6 sm:mt-8 border-t border-border">
+                <a
+                  href="/contact"
+                  className="inline-flex items-center gap-2 text-xs font-mono uppercase font-bold text-indigo-400 hover:underline"
+                >
+                  Schedule Technical Scoping <ArrowRight className="w-3.5 h-3.5" />
+                </a>
               </div>
-            </a>
+            </div>
+
           </div>
         </div>
+      </section>
 
-        {/* Nav Back */}
-        <div className="mt-16 text-center">
-          <Link
-            to="/"
-            className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground transition-colors font-mono uppercase tracking-wider"
-          >
-            ← Back to Home
-          </Link>
-        </div>
-      </div>
-    </div>
+      <Footer />
+    </main>
   );
 }

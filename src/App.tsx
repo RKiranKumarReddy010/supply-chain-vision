@@ -6,9 +6,14 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import BHScopeDashboard from "./pages/BHScopeDashboard.tsx";
 import LeadForgeDashboard from "./pages/LeadForgeDashboard.tsx";
 import Index from "./pages/Index.tsx";
+import ServicesPage from "./pages/ServicesPage.tsx";
+import ProcessPage from "./pages/ProcessPage.tsx";
+import WorkPage from "./pages/WorkPage.tsx";
+import ContactPage from "./pages/ContactPage.tsx";
 import Products from "./pages/Products.tsx";
 import Team from "./pages/Team.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import ConsentModal from "@/components/ConsentModal";
 import MouseIndicator from "@/components/MouseIndicator";
 
 const queryClient = new QueryClient();
@@ -18,10 +23,17 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <MouseIndicator />
+      <ConsentModal />
       <BrowserRouter>
+        <MouseIndicator />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/process" element={<ProcessPage />} />
+          <Route path="/work" element={<WorkPage />} />
+          <Route path="/solutions" element={<WorkPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/consult" element={<ContactPage />} />
           <Route path="/products" element={<Products />} />
           <Route path="/team" element={<Team />} />
           <Route path="/products/BHScope" element={<BHScopeDashboard />} />

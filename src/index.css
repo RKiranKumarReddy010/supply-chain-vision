@@ -46,7 +46,7 @@
     --gradient-radial: radial-gradient(ellipse at center, hsl(0 0% 12%) 0%, hsl(0 0% 4%) 70%);
     --shadow-glow: 0 0 0 1px hsl(0 0% 100% / 0.04), 0 30px 80px -20px hsl(0 0% 0% / 0.6);
 
-    /* Sidebar (unused but kept) */
+    /* Sidebar */
     --sidebar-background: 0 0% 4%;
     --sidebar-foreground: 0 0% 92%;
     --sidebar-primary: 0 0% 98%;
@@ -64,23 +64,44 @@
 @layer base {
   * {
     @apply border-border;
+    box-sizing: border-box;
   }
 
   html {
     scroll-behavior: smooth;
+    max-width: 100vw;
+    overflow-x: clip; /* clip does NOT break position:sticky */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    font-family: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
     font-feature-settings: 'ss01', 'cv11';
     -webkit-font-smoothing: antialiased;
-    cursor: none;
+    max-width: 100vw;
+    overflow-x: clip; /* clip does NOT break position:sticky */
+    width: 100%;
+    -webkit-tap-highlight-color: transparent;
   }
 
-  /* Hide cursor globally for interactive elements as well */
-  a, button, input, select, textarea, [role="button"] {
-    cursor: none !important;
+  /* Standard native cursor behavior across all pages and devices */
+  body, a, button, input, select, textarea, [role="button"] {
+    cursor: auto;
+  }
+  a, button, [role="button"], select {
+    cursor: pointer;
+  }
+
+  /* Mobile text input zoom prevention on iOS (ensures inputs >= 16px) */
+  input, textarea, select {
+    font-size: 16px;
+  }
+  @media (min-width: 640px) {
+    input, textarea, select {
+      font-size: inherit;
+    }
   }
 
   ::selection {
@@ -109,7 +130,12 @@
     background-image:
       linear-gradient(to right, hsl(0 0% 100% / 0.04) 1px, transparent 1px),
       linear-gradient(to bottom, hsl(0 0% 100% / 0.04) 1px, transparent 1px);
-    background-size: 64px 64px;
+    background-size: 48px 48px;
+  }
+  @media (min-width: 768px) {
+    .grid-bg {
+      background-size: 64px 64px;
+    }
   }
 
   .vignette {
@@ -117,12 +143,16 @@
   }
 
   .marquee-track {
-    animation: marquee 60s linear infinite;
+    animation: marquee 40s linear infinite;
     will-change: transform;
+  }
+  @media (min-width: 768px) {
+    .marquee-track {
+      animation-duration: 60s;
+    }
   }
   .marquee-track:hover {
     animation-play-state: running;
-    animation-duration: 60s;
     animation-timing-function: linear;
   }
   @keyframes marquee {

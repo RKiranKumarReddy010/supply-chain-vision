@@ -32,22 +32,11 @@ export default function Services() {
   return (
     <section id="services" className="bg-background">
       <div ref={ref} className="reveal mx-auto max-w-7xl px-6 lg:px-10 py-28">
-        <div className="grid grid-cols-12 gap-6 mb-16">
-          <div className="col-span-12 md:col-span-4">
-            <div className="text-xs font-mono uppercase tracking-[0.25em] text-muted-foreground">Services</div>
-          </div>
-          <div className="col-span-12 md:col-span-8">
-            <h2 className="font-display text-4xl md:text-6xl leading-[1.02] text-balance">
-              Predictive Demand Planning &<br />
-              <span className="text-muted-foreground">Sales Forecasting Engine</span>
-            </h2>
-            <h2 className="mt-6 font-display text-2xl md:text-3xl leading-[1.02] text-balance">
-              Revenue Growth Management (RGM) & Supply Chain Solutions
-            </h2>
-            <p className="mt-6 max-w-2xl text-muted-foreground leading-relaxed">
-              Our <strong className="font-semibold text-foreground">demand planning</strong> analytics engine reduces forecast error at SKU level, while our <strong className="font-semibold text-foreground">RGM solutions</strong> optimize price-pack architecture and trade promotion spend. Together they give enterprise teams a complete <strong className="font-semibold text-foreground">supply chain solution</strong> — demand planning, sales forecasting, and revenue growth management in one operating system.
-            </p>
-          </div>
+        <div className="mb-16">
+          <div className="text-xs font-mono uppercase tracking-[0.25em] text-muted-foreground mb-4">Services</div>
+          <h2 className="font-display text-4xl md:text-6xl leading-[1.02]">
+            Services
+          </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-px bg-border">
