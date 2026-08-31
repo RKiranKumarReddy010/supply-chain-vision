@@ -38,7 +38,7 @@ const team: TeamMember[] = [
   },
   {
     id: "vignesh",
-    name: "Vighneshwara Manda",
+    name: "Vighneswara Manda",
     role: "CO-Founder",
     roleTag: "Manager",
     photo: "/team/vighnesh-manda.jpg",
@@ -58,7 +58,7 @@ const team: TeamMember[] = [
   },
   {
     id: "purnima",
-    name: "Medapetta Purnima",
+    name: "Purnima Medapati",
     role: "Head of Sales",
     roleTag: "Sales & Ops Lead",
     photo: "/team/purnima-medapetta.jpg",

@@ -4,9 +4,9 @@ import { ArrowRight } from "lucide-react";
 const MEMBERS = [
   { name: "R Kiran Kumar Reddy", role: "Founder", photo: "/team/kiran-kumar-reddy.jpg" },
   { name: "Rahul Sahoo", role: "Founder", photo: "/team/rahul-sahoo.jpg" },
-  { name: "Vighneshwara Manda", role: "CO-Founder", photo: "/team/vighnesh-manda.jpg" },
+  { name: "Vighneswara Manda", role: "CO-Founder", photo: "/team/vighnesh-manda.jpg" },
   { name: "Ipsita Nayak", role: "Management Lead", photo: "/team/ipsita-nayak.jpg" },
-  { name: "Medapetta Purnima", role: "Head of Sales", photo: "/team/purnima-medapetta.jpg" },
+  { name: "Purnima Medapati", role: "Head of Sales", photo: "/team/purnima-medapetta.jpg" },
 ];
 
 export default function TeamSection() {
