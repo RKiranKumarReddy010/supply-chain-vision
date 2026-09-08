@@ -6,13 +6,7 @@ import {
   Zap, 
   CheckCircle2, 
   ShieldCheck, 
-  ExternalLink, 
-  Wand2, 
-  Terminal, 
-  Activity, 
-  CreditCard, 
-  Lock,
-  Sparkles
+  Sparkles 
 } from "lucide-react";
 
 export default function Products() {
@@ -117,214 +111,59 @@ export default function Products() {
             </div>
           </div>
 
-          {/* VERITAS AI SUITE — Cyber Cyan Flagship Card */}
-          <div className="bg-[#070d16] text-slate-100 rounded-3xl p-6 sm:p-8 md:p-12 border border-cyan-500/30 shadow-[0_0_60px_-15px_rgba(6,182,212,0.2)] relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+          {/* Software & Engagements 3-Column Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
             
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10">
-              <div className="lg:col-span-7 space-y-6">
-                <div className="flex items-center gap-3 flex-wrap">
-                  <span className="px-3 py-1 bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 rounded-md text-xs font-mono font-bold uppercase tracking-wider flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                    AI Intelligence Suite
-                  </span>
-                  <span className="text-xs font-mono text-cyan-400/80 font-semibold uppercase tracking-wider">
-                    v2.4 Active Release
-                  </span>
-                  <span className="px-2.5 py-0.5 bg-slate-800/80 text-slate-300 rounded text-[11px] font-mono border border-slate-700">
-                    Cyber Cyan Dark
+            {/* Veritas AI Suite */}
+            <div className="rounded-3xl border border-border bg-card p-6 sm:p-8 md:p-10 flex flex-col justify-between hover:border-cyan-400/50 transition-all">
+              <div className="space-y-5 sm:space-y-6">
+                <div className="flex items-center justify-between flex-wrap gap-2">
+                  <div className="h-12 w-12 rounded-xl bg-cyan-400/10 text-cyan-400 flex items-center justify-center">
+                    <Sparkles className="h-6 w-6" />
+                  </div>
+                  <span className="px-3 py-1 bg-cyan-500/10 text-cyan-400 rounded-md text-xs font-mono font-bold uppercase tracking-wider border border-cyan-500/20">
+                    AI Detection & Rectification
                   </span>
                 </div>
 
                 <div>
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white tracking-tight flex items-center gap-3">
-                    VERITAS AI SUITE
+                  <h2 className="text-2xl sm:text-3xl font-display font-bold text-foreground tracking-tight">
+                    Veritas AI Suite
                   </h2>
-                  <p className="text-xs sm:text-sm font-mono text-cyan-400 font-medium mt-1">
-                    Next-Generation Statistical AI Detection & Rectification Suite
+                  <p className="text-xs font-mono text-muted-foreground mt-1">
+                    Statistical AI Detection & Neural Rectifier
                   </p>
                 </div>
 
-                <div className="text-slate-300 text-sm sm:text-base leading-relaxed space-y-2">
-                  <p className="text-white font-medium">
-                    Detect AI generated text with precision. Then rectify it.
-                  </p>
-                  <p className="text-slate-400 text-xs sm:text-sm">
-                    Veritas computes sentence-level burstiness, perplexity variance, and robotic signature patterns. Subscribers unlock automated document humanization through neural cadence re-synthesis.
-                  </p>
-                </div>
+                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
+                  Detect AI-generated text with precision through sentence-level burstiness and perplexity variance analysis, then automatically humanize flagged robotic sentences into natural prose.
+                </p>
 
-                {/* 4 Live Metrics Pills */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-                  <div className="p-3 rounded-xl bg-cyan-950/40 border border-cyan-500/25 text-left">
-                    <div className="text-lg sm:text-xl font-bold font-mono text-cyan-300">99.4%</div>
-                    <div className="text-[10px] sm:text-[11px] font-mono uppercase text-slate-400">Benchmark Acc.</div>
-                    <div className="text-[9px] text-cyan-400/70 mt-0.5">Empirical test</div>
-                  </div>
-                  <div className="p-3 rounded-xl bg-cyan-950/40 border border-cyan-500/25 text-left">
-                    <div className="text-lg sm:text-xl font-bold font-mono text-cyan-300">&lt; 450ms</div>
-                    <div className="text-[10px] sm:text-[11px] font-mono uppercase text-slate-400">Scan Latency</div>
-                    <div className="text-[9px] text-cyan-400/70 mt-0.5">Sub-second parsing</div>
-                  </div>
-                  <div className="p-3 rounded-xl bg-cyan-950/40 border border-cyan-500/25 text-left">
-                    <div className="text-lg sm:text-xl font-bold font-mono text-cyan-300">Sentence</div>
-                    <div className="text-[10px] sm:text-[11px] font-mono uppercase text-slate-400">Heatmap Res.</div>
-                    <div className="text-[9px] text-cyan-400/70 mt-0.5">Full diagnostic</div>
-                  </div>
-                  <div className="p-3 rounded-xl bg-cyan-950/40 border border-cyan-500/25 text-left">
-                    <div className="text-lg sm:text-xl font-bold font-mono text-emerald-400">Instant PG</div>
-                    <div className="text-[10px] sm:text-[11px] font-mono uppercase text-slate-400">Cashfree PG</div>
-                    <div className="text-[9px] text-emerald-400/70 mt-0.5">Automated checkout</div>
-                  </div>
-                </div>
-
-                {/* 3 Pipeline Cards */}
-                <div className="space-y-2.5 pt-2">
-                  <div className="text-xs font-mono uppercase tracking-wider text-cyan-400/80 font-bold">
-                    Detection & Humanization Pipeline
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                    <a
-                      href="https://truth-seeker-suite.vercel.app/"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-cyan-500/40 transition-all group"
-                    >
-                      <div className="flex items-center justify-between mb-1.5">
-                        <Activity className="w-4 h-4 text-cyan-400" />
-                        <ArrowRight className="w-3 h-3 text-slate-500 group-hover:text-cyan-300 group-hover:translate-x-0.5 transition-all" />
-                      </div>
-                      <div className="text-xs font-bold text-white mb-1">Burstiness & Perplexity</div>
-                      <div className="text-[11px] text-slate-400 leading-snug">
-                        Isolates robotic uniformity across paragraph cadence and sentence variance.
-                      </div>
-                    </a>
-
-                    <a
-                      href="https://truth-seeker-suite.vercel.app/"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-cyan-500/40 transition-all group"
-                    >
-                      <div className="flex items-center justify-between mb-1.5">
-                        <Terminal className="w-4 h-4 text-cyan-400" />
-                        <ArrowRight className="w-3 h-3 text-slate-500 group-hover:text-cyan-300 group-hover:translate-x-0.5 transition-all" />
-                      </div>
-                      <div className="text-xs font-bold text-white mb-1">Sentence-Level Heatmap</div>
-                      <div className="text-[11px] text-slate-400 leading-snug">
-                        Scored diagnostic findings identifying transition markers and synthetic signatures.
-                      </div>
-                    </a>
-
-                    <a
-                      href="https://truth-seeker-suite.vercel.app/"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="p-3.5 rounded-xl bg-slate-900/80 border border-slate-800 hover:border-emerald-500/40 transition-all group"
-                    >
-                      <div className="flex items-center justify-between mb-1.5">
-                        <Wand2 className="w-4 h-4 text-emerald-400" />
-                        <ArrowRight className="w-3 h-3 text-slate-500 group-hover:text-emerald-300 group-hover:translate-x-0.5 transition-all" />
-                      </div>
-                      <div className="text-xs font-bold text-white mb-1">Automated Neural Rectifier</div>
-                      <div className="text-[11px] text-slate-400 leading-snug">
-                        One-click document humanization. Rewrites robotic lines into organic prose.
-                      </div>
-                    </a>
-                  </div>
+                <div className="space-y-2 pt-2">
+                  {[
+                    "Sentence-level burstiness & perplexity variance scoring",
+                    "Granular diagnostic heatmap isolating robotic transition markers",
+                    "Automated neural rectifier for one-click document humanization",
+                    "Enterprise document scanning with sub-second parsing latency",
+                  ].map((f) => (
+                    <div key={f} className="flex items-start gap-2 text-xs text-zinc-300">
+                      <ShieldCheck className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                      <span>{f}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              {/* Right Specs & Actions Card */}
-              <div className="lg:col-span-5 bg-[#0b1422] rounded-2xl p-5 sm:p-7 md:p-8 border border-cyan-500/30 flex flex-col justify-between h-full space-y-6">
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="text-xs font-mono uppercase tracking-wider text-cyan-400 font-bold">
-                      Suite Architecture
-                    </div>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800">
-                      Production Ready
-                    </span>
-                  </div>
-
-                  <div className="space-y-3 font-mono text-xs">
-                    <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-slate-800 gap-1 sm:gap-0">
-                      <span className="text-slate-400">Analysis Method</span>
-                      <span className="text-white font-semibold">Perplexity & Burstiness Variance</span>
-                    </div>
-                    <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-slate-800 gap-1 sm:gap-0">
-                      <span className="text-slate-400">Resolution</span>
-                      <span className="text-cyan-300 font-semibold">Sentence-by-Sentence Heatmap</span>
-                    </div>
-                    <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-slate-800 gap-1 sm:gap-0">
-                      <span className="text-slate-400">Rectifier</span>
-                      <span className="text-white font-semibold">Neural Style Synthesizer</span>
-                    </div>
-                    <div className="flex flex-col sm:flex-row sm:justify-between py-2 border-b border-slate-800 gap-1 sm:gap-0">
-                      <span className="text-slate-400">Payment Gateway</span>
-                      <span className="text-emerald-400 font-semibold">Cashfree PG (INR Direct)</span>
-                    </div>
-                    <div className="flex flex-col sm:flex-row sm:justify-between py-2 gap-1 sm:gap-0">
-                      <span className="text-slate-400">Cloud & Security</span>
-                      <span className="text-white font-semibold">256-bit Encrypted · Vercel Edge</span>
-                    </div>
-                  </div>
-
-                  {/* Subscriptions Overview */}
-                  <div className="mt-6 pt-5 border-t border-slate-800">
-                    <div className="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-bold mb-3 flex items-center gap-1.5">
-                      <CreditCard className="w-3.5 h-3.5 text-cyan-400" />
-                      <span>Transparent Subscription Tiers</span>
-                    </div>
-                    <div className="grid grid-cols-3 gap-2 text-center font-mono">
-                      <div className="p-2 rounded-lg bg-slate-900 border border-slate-800">
-                        <div className="text-[10px] text-slate-400 uppercase">Community</div>
-                        <div className="text-xs font-bold text-white mt-0.5">₹0</div>
-                        <div className="text-[9px] text-slate-500">Forever</div>
-                      </div>
-                      <div className="p-2 rounded-lg bg-cyan-950/60 border border-cyan-500/40">
-                        <div className="text-[10px] text-cyan-300 uppercase">Monthly Pro</div>
-                        <div className="text-xs font-bold text-cyan-200 mt-0.5">₹99</div>
-                        <div className="text-[9px] text-cyan-400/70">/ month</div>
-                      </div>
-                      <div className="p-2 rounded-lg bg-emerald-950/40 border border-emerald-500/30">
-                        <div className="text-[10px] text-emerald-400 uppercase">Yearly Pro</div>
-                        <div className="text-xs font-bold text-emerald-300 mt-0.5">₹599</div>
-                        <div className="text-[9px] text-emerald-400/70">Save 50%</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Actions */}
-                <div className="space-y-2.5 pt-2">
-                  <a
-                    href="/products/VeritasAI"
-                    className="w-full py-3.5 px-6 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-mono uppercase text-xs tracking-[0.2em] font-bold transition-colors flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20"
-                  >
-                    Launch Veritas Suite <ArrowRight className="w-4 h-4" />
-                  </a>
-
-                  <div className="pt-1">
-                    <a
-                      href="https://truth-seeker-suite.vercel.app/"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="w-full py-2.5 px-4 rounded-lg bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-300 font-mono text-[11px] text-center transition-colors flex items-center justify-center gap-2"
-                    >
-                      <span>Visit truth-seeker-suite.vercel.app</span>
-                      <ExternalLink className="w-3.5 h-3.5 text-cyan-400" />
-                    </a>
-                  </div>
-                </div>
+              <div className="pt-6 sm:pt-8 mt-6 sm:mt-8 border-t border-border">
+                <a
+                  href="/products/VeritasAI"
+                  className="inline-flex items-center gap-2 text-xs font-mono uppercase font-bold text-cyan-400 hover:underline"
+                >
+                  Open Veritas AI Suite <ArrowRight className="w-3.5 h-3.5" />
+                </a>
               </div>
             </div>
-          </div>
 
-          {/* LeadForge & Consulting 2-Column Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
-            
             {/* LeadForge */}
             <div className="rounded-3xl border border-border bg-card p-6 sm:p-8 md:p-10 flex flex-col justify-between hover:border-emerald-400/50 transition-all">
               <div className="space-y-5 sm:space-y-6">
