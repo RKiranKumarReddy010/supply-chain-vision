@@ -225,6 +225,7 @@ export default function ContactPage() {
                     <option>Revenue Growth Management (RGM)</option>
                     <option>Inventory & Multi-Echelon Buffer Sizing</option>
                     <option>BHScope SaaS Platform Demo</option>
+                    <option>Veritas AI Suite (Detection & Rectification)</option>
                     <option>LeadForge Lead Finder Engine</option>
                     <option>Custom Enterprise Engagement</option>
                   </select>

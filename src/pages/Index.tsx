@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import Marquee from "@/components/Marquee";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
-import { ArrowRight, BarChart3, TrendingUp, Layers, ShieldCheck, Zap } from "lucide-react";
+import { ArrowRight, BarChart3, TrendingUp, Layers, ShieldCheck, Zap, Activity } from "lucide-react";
 
 export default function Index() {
   return (
@@ -105,9 +105,9 @@ export default function Index() {
             </a>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {/* BHScope Card (White container design) */}
-            <div className="bg-white text-zinc-900 rounded-2xl p-6 sm:p-8 lg:p-10 border border-zinc-200 shadow-xl flex flex-col justify-between group hover:border-zinc-400 transition-all">
+            <div className="bg-white text-zinc-900 rounded-2xl p-6 sm:p-8 border border-zinc-200 shadow-xl flex flex-col justify-between group hover:border-zinc-400 transition-all">
               <div className="space-y-5 sm:space-y-6">
                 <div className="flex items-center justify-between flex-wrap gap-2">
                   <span className="font-mono text-xs font-bold px-3 py-1 bg-zinc-950 text-white rounded">
@@ -118,11 +118,11 @@ export default function Index() {
                   </span>
                 </div>
                 <div>
-                  <h3 className="font-display text-2xl sm:text-3xl font-bold text-zinc-950 mb-1.5">
+                  <h3 className="font-display text-2xl font-bold text-zinc-950 mb-1.5">
                     BHScope
                   </h3>
                   <p className="text-xs sm:text-sm font-mono text-zinc-600 font-medium">
-                    SKU-Level Demand Planning & Point-of-Sale Analytics
+                    SKU Demand & POS Analytics
                   </p>
                 </div>
                 <p className="text-zinc-700 text-xs sm:text-sm leading-relaxed">
@@ -132,7 +132,7 @@ export default function Index() {
                 <div className="space-y-2 pt-2">
                   {[
                     "Item & store level probabilistic demand forecasting",
-                    "Automated reorder point calculation with lead-time buffering",
+                    "Automated reorder points with lead-time buffering",
                     "Promotion calendar & margin tracking engine",
                   ].map((f) => (
                     <div key={f} className="flex items-start gap-2 text-xs text-zinc-700 font-medium">
@@ -153,8 +153,57 @@ export default function Index() {
               </div>
             </div>
 
+            {/* VERITAS AI SUITE Card (Cyber Cyan design) */}
+            <div className="bg-[#070d16] text-slate-100 rounded-2xl p-6 sm:p-8 border border-cyan-500/40 shadow-xl flex flex-col justify-between group hover:border-cyan-400 transition-all relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-36 h-36 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none" />
+              <div className="space-y-5 sm:space-y-6 relative z-10">
+                <div className="flex items-center justify-between flex-wrap gap-2">
+                  <span className="font-mono text-xs font-bold px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded border border-cyan-500/40 flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                    AI Intelligence
+                  </span>
+                  <span className="font-mono text-xs text-cyan-400/80 font-semibold">
+                    v2.4 Active
+                  </span>
+                </div>
+                <div>
+                  <h3 className="font-display text-2xl font-bold text-white mb-1.5">
+                    Veritas AI Suite
+                  </h3>
+                  <p className="text-xs sm:text-sm font-mono text-cyan-400 font-medium">
+                    Statistical AI Detection & Rectifier
+                  </p>
+                </div>
+                <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                  Sentence-level burstiness, perplexity variance, and robotic signature patterns. Detect synthetic text with 99.4% accuracy, then rectify into natural prose.
+                </p>
+
+                <div className="space-y-2 pt-2">
+                  {[
+                    "99.4% benchmark accuracy with < 450ms scan latency",
+                    "Granular sentence diagnostic heatmap inspection",
+                    "Automated Neural Rectifier document humanization",
+                  ].map((f) => (
+                    <div key={f} className="flex items-start gap-2 text-xs text-slate-300">
+                      <Activity className="w-4 h-4 text-cyan-400 shrink-0 mt-0.5" />
+                      <span>{f}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="pt-6 sm:pt-8 mt-6 sm:mt-8 border-t border-slate-800 flex items-center justify-between relative z-10">
+                <a
+                  href="/products/VeritasAI"
+                  className="inline-flex items-center gap-2 text-xs font-mono uppercase font-bold text-cyan-400 hover:underline"
+                >
+                  Launch Veritas Suite <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+
             {/* LeadForge Card */}
-            <div className="bg-card text-foreground rounded-2xl p-6 sm:p-8 lg:p-10 border border-border flex flex-col justify-between group hover:border-zinc-500 transition-all">
+            <div className="bg-card text-foreground rounded-2xl p-6 sm:p-8 border border-border flex flex-col justify-between group hover:border-emerald-500/50 transition-all">
               <div className="space-y-5 sm:space-y-6">
                 <div className="flex items-center justify-between flex-wrap gap-2">
                   <span className="font-mono text-xs font-bold px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded border border-emerald-500/30">
@@ -165,7 +214,7 @@ export default function Index() {
                   </span>
                 </div>
                 <div>
-                  <h3 className="font-display text-2xl sm:text-3xl font-bold text-foreground mb-1.5">
+                  <h3 className="font-display text-2xl font-bold text-foreground mb-1.5">
                     LeadForge
                   </h3>
                   <p className="text-xs sm:text-sm font-mono text-muted-foreground">

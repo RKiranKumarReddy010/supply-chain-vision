@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import BHScopeDashboard from "./pages/BHScopeDashboard.tsx";
 import LeadForgeDashboard from "./pages/LeadForgeDashboard.tsx";
+import VeritasAIDashboard from "./pages/VeritasAIDashboard.tsx";
 import Index from "./pages/Index.tsx";
 import ServicesPage from "./pages/ServicesPage.tsx";
 import ProcessPage from "./pages/ProcessPage.tsx";
@@ -38,6 +39,8 @@ const App = () => (
           <Route path="/team" element={<Team />} />
           <Route path="/products/BHScope" element={<BHScopeDashboard />} />
           <Route path="/products/LeadForge" element={<LeadForgeDashboard />} />
+          <Route path="/products/VeritasAI" element={<VeritasAIDashboard />} />
+          <Route path="/products/veritas" element={<VeritasAIDashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

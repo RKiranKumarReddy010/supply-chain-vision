@@ -6,7 +6,7 @@ const NAV_LINKS = [
   { label: "Services", href: "/services", desc: "Demand Planning & RGM Solutions" },
   { label: "Process", href: "/process", desc: "8-Week Enterprise Rollout" },
   { label: "Solutions", href: "/work", desc: "FMCG, Retail & Dark Stores" },
-  { label: "Products", href: "/products", desc: "BHScope SaaS & LeadForge" },
+  { label: "Products", href: "/products", desc: "BHScope, Veritas AI & LeadForge" },
   { label: "Team", href: "/team", desc: "Leadership & Data Science" },
 ];
 
@@ -155,22 +155,30 @@ export default function Nav() {
                   <Sparkles className="w-3.5 h-3.5 text-primary" />
                   <span>Live Product Tools</span>
                 </div>
-                <div className="grid grid-cols-2 gap-2.5">
+                <div className="grid grid-cols-3 gap-2">
                   <a
                     href="/products/BHScope"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="p-3 rounded-lg border border-border bg-card hover:border-foreground/40 text-left transition-colors"
+                    className="p-2.5 rounded-lg border border-border bg-card hover:border-foreground/40 text-left transition-colors"
                   >
                     <div className="font-bold text-xs text-foreground">BHScope</div>
-                    <div className="text-[10px] text-muted-foreground font-mono">Demand SaaS →</div>
+                    <div className="text-[9px] text-muted-foreground font-mono">Demand →</div>
+                  </a>
+                  <a
+                    href="/products/VeritasAI"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="p-2.5 rounded-lg border border-cyan-500/30 bg-cyan-950/20 hover:border-cyan-400 text-left transition-colors"
+                  >
+                    <div className="font-bold text-xs text-cyan-300">Veritas AI</div>
+                    <div className="text-[9px] text-cyan-400/80 font-mono">Detector →</div>
                   </a>
                   <a
                     href="/products/LeadForge"
                     onClick={() => setMobileMenuOpen(false)}
-                    className="p-3 rounded-lg border border-border bg-card hover:border-emerald-500/40 text-left transition-colors"
+                    className="p-2.5 rounded-lg border border-border bg-card hover:border-emerald-500/40 text-left transition-colors"
                   >
                     <div className="font-bold text-xs text-foreground">LeadForge</div>
-                    <div className="text-[10px] text-emerald-400 font-mono">Lead Finder →</div>
+                    <div className="text-[9px] text-emerald-400 font-mono">Leads →</div>
                   </a>
                 </div>
               </div>
