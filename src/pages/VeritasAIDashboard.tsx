@@ -1,7 +1,14 @@
-﻿import { Link } from "react-router-dom";
+﻿import { Link, useLocation } from "react-router-dom";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 
 export default function VeritasAIDashboard() {
+  const location = useLocation();
+
+  // Forward query params (like ?order_id=...) to truth-seeker-suite iframe so payment verification works seamlessly
+  const iframeTarget = location.search
+    ? `https://truth-seeker-suite.vercel.app/playground${location.search}`
+    : "https://truth-seeker-suite.vercel.app/";
+
   return (
     <div className="h-[100dvh] bg-background text-foreground flex flex-col font-sans overflow-hidden w-full">
       <div className="flex items-center justify-between px-4 sm:px-6 lg:px-10 py-2.5 border-b border-border/80 bg-background/95 backdrop-blur shrink-0">
@@ -17,7 +24,7 @@ export default function VeritasAIDashboard() {
             Veritas AI - Statistical AI Detection & Rectification Suite
           </span>
           <a
-            href="https://truth-seeker-suite.vercel.app/"
+            href={location.search ? `https://truth-seeker-suite.vercel.app/playground${location.search}` : "https://truth-seeker-suite.vercel.app/"}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1 text-[11px] font-mono text-cyan-400 hover:text-cyan-300 transition-colors px-2 py-0.5 rounded border border-cyan-500/30 bg-cyan-950/40"
@@ -29,10 +36,10 @@ export default function VeritasAIDashboard() {
         </div>
       </div>
       <iframe
-        src="https://truth-seeker-suite.vercel.app/"
+        src={iframeTarget}
         className="flex-1 w-full h-full border-0"
         title="Veritas AI Suite - Statistical AI Detection & Rectification"
-        allow="clipboard-read; clipboard-write; payment"
+        allow="clipboard-read; clipboard-write; payment; camera; microphone"
       />
     </div>
   );
