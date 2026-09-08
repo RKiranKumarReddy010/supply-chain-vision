@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+﻿import { Link } from "react-router-dom";
+import { ArrowLeft, ExternalLink } from "lucide-react";
 
 export default function VeritasAIDashboard() {
   return (
@@ -12,15 +12,27 @@ export default function VeritasAIDashboard() {
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>Back to Products</span>
         </Link>
-        <span className="text-[10px] font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground line-clamp-1">
-          Veritas AI · Statistical AI Detection & Rectification Suite
-        </span>
+        <div className="flex items-center gap-3">
+          <span className="text-[10px] font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground line-clamp-1">
+            Veritas AI - Statistical AI Detection & Rectification Suite
+          </span>
+          <a
+            href="https://truth-seeker-suite.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-[11px] font-mono text-cyan-400 hover:text-cyan-300 transition-colors px-2 py-0.5 rounded border border-cyan-500/30 bg-cyan-950/40"
+            title="Open in standalone window"
+          >
+            <span className="hidden sm:inline">Open Standalone</span>
+            <ExternalLink className="w-3 h-3" />
+          </a>
+        </div>
       </div>
       <iframe
         src="https://truth-seeker-suite.vercel.app/"
         className="flex-1 w-full h-full border-0"
-        title="Veritas AI Suite — Statistical AI Detection & Rectification"
-        allow="clipboard-read; clipboard-write"
+        title="Veritas AI Suite - Statistical AI Detection & Rectification"
+        allow="clipboard-read; clipboard-write; payment"
       />
     </div>
   );
