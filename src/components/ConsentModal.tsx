@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Check, Cookie, FileCheck2, Fingerprint, ScrollText, ShieldCheck, X } from "lucide-react";
+import { Check, Cookie, FileCheck2, ScrollText, ShieldCheck, X } from "lucide-react";
 import { toast } from "sonner";
-import SignaturePad from "./SignaturePad";
 
 const STORAGE_KEY = "omnitensors-legal-consent";
 const OPEN_EVENT = "omnitensors:open-consent";
@@ -17,7 +16,6 @@ export default function ConsentModal() {
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState<"intro" | "form">("intro");
   const [checks, setChecks] = useState([false, false, false]);
-  const [hasInk, setHasInk] = useState(false);
   const [signedAt, setSignedAt] = useState<string | null>(null);
   const [justSigned, setJustSigned] = useState(false);
   const [alreadyConsented, setAlreadyConsented] = useState(false);
@@ -63,7 +61,7 @@ export default function ConsentModal() {
   };
 
   const sign = () => {
-    if (!allChecked || !hasInk) return;
+    if (!allChecked) return;
     const iso = new Date().toISOString();
     setSignedAt(new Date(iso).toLocaleString());
     try {
@@ -71,7 +69,7 @@ export default function ConsentModal() {
     } catch {
       // ignore storage errors
     }
-    toast.success("Signature recorded — terms, conditions & cookies accepted.");
+    toast.success("Terms, conditions & cookies accepted.");
     setJustSigned(true);
     setAlreadyConsented(true);
     setTimeout(() => setOpen(false), 1800);
@@ -120,7 +118,7 @@ export default function ConsentModal() {
                 >
                   <Check className="h-7 w-7 sm:h-8 sm:w-8" />
                 </motion.div>
-                <h3 className="text-xl sm:text-2xl font-bold tracking-tight">Consent Signed</h3>
+                <h3 className="text-xl sm:text-2xl font-bold tracking-tight">Consent Accepted</h3>
                 <p className="text-xs sm:text-sm text-muted-foreground mt-2 font-mono">
                   Recorded · {signedAt}
                 </p>
@@ -140,7 +138,7 @@ export default function ConsentModal() {
                 </h2>
                 <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed mt-3 sm:mt-4">
                   We use cookies and process data to deliver analytics securely. To continue, review and accept our
-                  terms below. Your consent is recorded with a digital signature — stored locally on this device.
+                  terms below. Your consent is stored locally on this device.
                 </p>
 
                 <ul className="mt-5 sm:mt-6 space-y-2">
@@ -175,7 +173,7 @@ export default function ConsentModal() {
                       <FileCheck2 className="h-3 w-3" />
                       <span>Consent form</span>
                     </div>
-                    <h2 className="text-xl sm:text-2xl font-bold tracking-tight">Sign to confirm consent</h2>
+                    <h2 className="text-xl sm:text-2xl font-bold tracking-tight">Confirm consent</h2>
                   </div>
                   <button
                     type="button"
@@ -217,25 +215,16 @@ export default function ConsentModal() {
                   </div>
                 </div>
 
-                {/* Signature */}
-                <div className="mb-5">
-                  <div className="text-[11px] font-mono uppercase tracking-wider text-muted-foreground mb-2">
-                    Digital signature
-                  </div>
-                  <SignaturePad onInkChange={setHasInk} />
-                </div>
-
                 <button
                   type="button"
                   onClick={sign}
-                  disabled={!allChecked || !hasInk}
+                  disabled={!allChecked}
                   className="w-full text-center text-xs uppercase tracking-[0.2em] py-3.5 sm:py-4 px-6 bg-foreground text-background hover:bg-foreground/85 transition-colors disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center gap-2 font-semibold"
                 >
-                  <Fingerprint className="h-4 w-4" />
-                  Sign &amp; Accept
+                  Accept
                 </button>
                 <p className="mt-3 text-center text-[10px] sm:text-[11px] font-mono text-muted-foreground/70 uppercase tracking-wider">
-                  All boxes must be checked and signed to proceed
+                  All boxes must be checked to proceed
                 </p>
               </div>
             )}
