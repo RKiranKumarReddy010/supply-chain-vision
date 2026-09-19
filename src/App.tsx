@@ -17,34 +17,44 @@ import NotFound from "./pages/NotFound.tsx";
 import ConsentModal from "@/components/ConsentModal";
 import MouseIndicator from "@/components/MouseIndicator";
 
+import ClickSpark from "@/components/ui/ClickSpark";
+
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <ConsentModal />
-      <BrowserRouter>
-        <MouseIndicator />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/process" element={<ProcessPage />} />
-          <Route path="/work" element={<WorkPage />} />
-          <Route path="/solutions" element={<WorkPage />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/consult" element={<ContactPage />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/team" element={<Team />} />
-          <Route path="/products/BHScope" element={<BHScopeDashboard />} />
-          <Route path="/products/LeadForge" element={<LeadForgeDashboard />} />
-          <Route path="/products/VeritasAI" element={<VeritasAIDashboard />} />
-          <Route path="/products/veritas" element={<VeritasAIDashboard />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <ClickSpark
+        sparkColor="#fff"
+        sparkSize={10}
+        sparkRadius={15}
+        sparkCount={8}
+        duration={400}
+      >
+        <Toaster />
+        <Sonner />
+        <ConsentModal />
+        <BrowserRouter>
+          <MouseIndicator />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/process" element={<ProcessPage />} />
+            <Route path="/work" element={<WorkPage />} />
+            <Route path="/solutions" element={<WorkPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/consult" element={<ContactPage />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/team" element={<Team />} />
+            <Route path="/products/BHScope" element={<BHScopeDashboard />} />
+            <Route path="/products/LeadForge" element={<LeadForgeDashboard />} />
+            <Route path="/products/VeritasAI" element={<VeritasAIDashboard />} />
+            <Route path="/products/veritas" element={<VeritasAIDashboard />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </ClickSpark>
     </TooltipProvider>
   </QueryClientProvider>
 );

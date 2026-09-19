@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, Users, Mail, X } from "lucide-react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import FolderFloat from "@/components/ui/FolderFloat";
+import ScrollFloat from "@/components/ui/ScrollFloat";
 
 type TeamMember = {
   id: string;
@@ -81,8 +83,12 @@ export default function Team() {
             <Users className="h-4 w-4" />
             <span>Our Team</span>
           </div>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-[1.1] tracking-tight">
-            About <span className="bg-foreground text-background px-2.5 sm:px-3 py-0.5">OmniTensors</span> Team
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground leading-[1.1] tracking-tight flex flex-wrap gap-x-2">
+            <ScrollFloat elementType="span" containerClassName="inline-block">About</ScrollFloat>
+            <span className="bg-foreground text-background px-2.5 sm:px-3 py-0.5 whitespace-nowrap overflow-hidden">
+              <ScrollFloat elementType="span" containerClassName="inline-block">OmniTensors</ScrollFloat>
+            </span>
+            <ScrollFloat elementType="span" containerClassName="inline-block">Team</ScrollFloat>
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-muted-foreground mt-4 max-w-2xl leading-relaxed">
             Black-and-white by design. The people who turn data, models, and strategy into your growth. Tap a portrait to read more.
@@ -206,6 +212,114 @@ export default function Team() {
             </div>
           </div>
         )}
+
+        {/* Team Folders Grid */}
+        <div className="mt-20 pt-20 pb-20 border-t border-border flex flex-col items-center w-full">
+          <h2 className="text-xl sm:text-2xl font-bold mb-8 text-center">Team Insights & Articles</h2>
+          
+          {/* Standard container with flex-nowrap, no scrolling, no clipping */}
+          <div className="w-full pb-4 pt-32 px-4 md:px-8 max-w-[1400px] mx-auto">
+            <div className="flex flex-row flex-nowrap justify-center items-center gap-4 md:gap-8 w-full">
+            {/* Kiran's Folder */}
+            <FolderFloat
+              items={[
+                { label: 'Setup Guide', value: 'https://medium.com/towards-artificial-intelligence/best-claude-alternative-setup-guide-17ec18cc0714' },
+                { label: 'CUDA C++: 101', value: 'https://medium.com/@rkirankumarreddy599/understanding-cuda-c-101-f4565115f863' },
+                { label: 'Product Bundling', value: 'https://medium.com/@rkirankumarreddy599/product-bundling-8e335e70d529' },
+                { label: 'Intermittent Demand', value: 'https://medium.com/@rkirankumarreddy599/forecasting-the-unforecastable-an-introduction-to-intermittent-demand-98448840a767' }
+              ]}
+              label="Kiran's Blogs"
+              sublabel="4 articles"
+              trigger="hover"
+              closeOnSelect
+              physics
+              drift={0.5}
+              onSelect={(value) => window.open(value, '_blank')}
+              folderColor="#18181b"
+              frontColor="#27272a"
+              paperColor="#fafafa"
+              itemColor="#fafafa"
+              itemTextColor="#18181b"
+              labelColor="#fafafa"
+              width={200}
+              height={148}
+              radius={14}
+            />
+
+            {/* Rahul's Folder */}
+            <FolderFloat
+              items={[]}
+              label="Rahul's Notes"
+              sublabel="0 articles"
+              trigger="hover"
+              physics
+              folderColor="#18181b"
+              frontColor="#27272a"
+              paperColor="#fafafa"
+              itemColor="#fafafa"
+              itemTextColor="#18181b"
+              labelColor="#fafafa"
+              width={200}
+              height={148}
+              radius={14}
+            />
+
+            {/* Vighnesh's Folder */}
+            <FolderFloat
+              items={[]}
+              label="Vighnesh's Notes"
+              sublabel="0 articles"
+              trigger="hover"
+              physics
+              folderColor="#18181b"
+              frontColor="#27272a"
+              paperColor="#fafafa"
+              itemColor="#fafafa"
+              itemTextColor="#18181b"
+              labelColor="#fafafa"
+              width={200}
+              height={148}
+              radius={14}
+            />
+
+            {/* Ipsita's Folder */}
+            <FolderFloat
+              items={[]}
+              label="Ipsita's Notes"
+              sublabel="0 articles"
+              trigger="hover"
+              physics
+              folderColor="#18181b"
+              frontColor="#27272a"
+              paperColor="#fafafa"
+              itemColor="#fafafa"
+              itemTextColor="#18181b"
+              labelColor="#fafafa"
+              width={200}
+              height={148}
+              radius={14}
+            />
+
+            {/* Purnima's Folder */}
+            <FolderFloat
+              items={[]}
+              label="Purnima's Notes"
+              sublabel="0 articles"
+              trigger="hover"
+              physics
+              folderColor="#18181b"
+              frontColor="#27272a"
+              paperColor="#fafafa"
+              itemColor="#fafafa"
+              itemTextColor="#18181b"
+              labelColor="#fafafa"
+              width={200}
+              height={148}
+              radius={14}
+            />
+          </div>
+        </div>
+        </div>
 
         {/* Nav Back */}
         <div className="mt-12 sm:mt-16 text-center">

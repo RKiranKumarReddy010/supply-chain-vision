@@ -1,6 +1,7 @@
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
+import ScrollFloat from "@/components/ui/ScrollFloat";
 import { ArrowRight, Search, Database, Sliders, CheckSquare2, CheckCircle2 } from "lucide-react";
 
 const STAGES = [
@@ -74,9 +75,9 @@ export default function ProcessPage() {
           <div className="text-xs font-mono uppercase tracking-[0.25em] text-muted-foreground mb-3 sm:mb-4">
             Structured Engagement
           </div>
-          <h1 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] max-w-4xl font-bold">
+          <ScrollFloat elementType="h1" containerClassName="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] max-w-4xl font-bold">
             From Raw Data to Real-Time Execution
-          </h1>
+          </ScrollFloat>
           <p className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed">
             Our disciplined 4-stage methodology moves your team from diagnostic clarity to full algorithmic operation without business disruption.
           </p>

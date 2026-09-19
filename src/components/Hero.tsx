@@ -1,5 +1,6 @@
 import { useRef, Suspense, lazy } from "react";
 import { useScrollProgress } from "@/hooks/useScrollProgress";
+import ScrollFloat from "@/components/ui/ScrollFloat";
 
 const SupplyChainScene = lazy(() => import("./three/SupplyChainScene"));
 
@@ -32,13 +33,6 @@ export default function Hero() {
         {/* Grid overlay */}
         <div className="absolute inset-0 pointer-events-none opacity-30 grid-bg" style={{ maskImage: "radial-gradient(ellipse at center, black 30%, transparent 80%)" }} />
 
-        {/* Top label */}
-        <div className="absolute top-20 sm:top-24 left-0 right-0 px-4 sm:px-6 lg:px-10 pointer-events-none">
-          <div className="mx-auto max-w-7xl flex items-center justify-between text-[10px] sm:text-xs font-mono uppercase tracking-[0.15em] sm:tracking-[0.2em] text-muted-foreground">
-            <span>OMNITENSORS Core ·</span>
-            <span>Network Sim · Active</span>
-          </div>
-        </div>
 
         {/* Content overlay */}
         <div className="absolute inset-0 flex items-start pt-28 sm:pt-36 md:pt-0 md:items-center pointer-events-none z-10">
@@ -46,11 +40,12 @@ export default function Hero() {
             <div className="col-span-12 lg:col-span-8">
               <h1
                 key={stageIdx}
-                className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[4.5rem] leading-[1.05] sm:leading-[0.98] text-balance animate-fade-in font-bold"
+                className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-[4.5rem] leading-[1.05] sm:leading-[0.98] text-balance animate-fade-in font-bold flex flex-col"
               >
-                {stage.title}
-                <br />
-                <span className="text-muted-foreground font-medium">{stage.title2}</span>
+                <ScrollFloat elementType="span" containerClassName="inline-block overflow-hidden">{stage.title}</ScrollFloat>
+                <span className="text-muted-foreground font-medium mt-1 md:mt-2 overflow-hidden">
+                  <ScrollFloat elementType="span" containerClassName="inline-block">{stage.title2}</ScrollFloat>
+                </span>
               </h1>
             </div>
           </div>

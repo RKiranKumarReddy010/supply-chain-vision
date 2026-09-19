@@ -2,6 +2,7 @@ import { useState } from "react";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import SocialLinks from "@/components/SocialLinks";
+import ScrollFloat from "@/components/ui/ScrollFloat";
 import { toast } from "sonner";
 import { Mail, Calendar, Clock, CheckCircle2, ArrowRight } from "lucide-react";
 
@@ -72,9 +73,9 @@ export default function ContactPage() {
           <div className="text-xs font-mono uppercase tracking-[0.25em] text-muted-foreground mb-3 sm:mb-4">
             Direct Consultation
           </div>
-          <h1 className="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] max-w-3xl font-bold">
+          <ScrollFloat elementType="h1" containerClassName="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] max-w-3xl font-bold">
             Let's Talk Demand, Inventory & Growth.
-          </h1>
+          </ScrollFloat>
           <p className="mt-4 sm:mt-6 text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed">
             Schedule a 30-minute technical consultation with our analytics team to discuss your forecasting pipeline, pricing strategy, or inventory optimization goals.
           </p>

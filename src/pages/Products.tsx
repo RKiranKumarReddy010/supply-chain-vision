@@ -8,6 +8,7 @@ import {
   ShieldCheck, 
   Sparkles 
 } from "lucide-react";
+import ScrollFloat from "@/components/ui/ScrollFloat";
 
 export default function Products() {
   return (
@@ -22,7 +23,15 @@ export default function Products() {
             Software & Platforms
           </div>
           <h1 className="text-3xl sm:text-5xl md:text-6xl font-display font-bold leading-[1.08] tracking-tight max-w-3xl">
-            OmniTensors Product Suite
+            <ScrollFloat
+              animationDuration={1}
+              ease="back.inOut(2)"
+              scrollStart="top bottom"
+              scrollEnd="bottom center"
+              stagger={0.03}
+            >
+              OmniTensors Product Suite
+            </ScrollFloat>
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-muted-foreground mt-4 max-w-2xl leading-relaxed">
             From intelligent demand sensing SaaS and statistical AI text detection to automated lead generation engines — explore our specialized software built for enterprise operations.

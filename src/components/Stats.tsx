@@ -1,4 +1,5 @@
 import { useReveal } from "@/hooks/useReveal";
+import ScrollFloat from "@/components/ui/ScrollFloat";
 
 const STATS = [
   { v: "32%", l: "Avg. logistics cost reduction" },
@@ -14,7 +15,9 @@ export default function Stats() {
       <div ref={ref} className="reveal mx-auto max-w-7xl px-6 lg:px-10 py-16 grid grid-cols-2 md:grid-cols-4 gap-px bg-border">
         {STATS.map((s) => (
           <div key={s.v} className="bg-background p-8">
-            <div className="font-display text-4xl md:text-5xl">{s.v}</div>
+            <ScrollFloat elementType="div" containerClassName="font-display text-4xl md:text-5xl overflow-hidden">
+              {s.v}
+            </ScrollFloat>
             <div className="mt-3 text-xs uppercase tracking-[0.18em] text-muted-foreground">{s.l}</div>
           </div>
         ))}
