@@ -15,12 +15,27 @@
   padding: 0;
   background-color: transparent;
   border: 1px solid hsl(var(--border) / 0.4);
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  box-shadow: none;
   position: relative;
   overflow: hidden;
-  will-change: height, background-color;
-  transition: background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
+  will-change: height;
+  transition: border-color 0.3s ease;
+  z-index: 1;
+  
+  /* Force hardware clipping on parent */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.card-nav-bg {
+  position: absolute;
+  /* Make child larger to prevent edge artifacts, parent will clip it */
+  inset: -20px; 
+  z-index: -1;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  transition: background-color 0.3s ease;
 }
 
 .card-nav-top {
@@ -33,7 +48,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.5rem 0.45rem 0.55rem 1.1rem;
-  z-index: 2;
+  z-index: 10;
+  border-radius: 20px;
 }
 
 .hamburger-menu {

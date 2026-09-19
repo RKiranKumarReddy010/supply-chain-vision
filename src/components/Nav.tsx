@@ -47,7 +47,7 @@ export default function Nav() {
   }, []);
 
   const OmniLogo = (
-    <div className="w-[72px] text-foreground drop-shadow-xl hover:scale-105 transition-transform duration-300 flex items-center justify-center">
+    <div className="w-[72px] -mt-2 text-foreground drop-shadow-xl hover:scale-105 transition-transform duration-300 flex items-center justify-center">
       <svg viewBox="0 0 200 150" fill="currentColor" xmlns="http://www.w3.org/2000/svg" className="w-full h-auto">
         <path d="M 30 90 C 30 10, 170 10, 170 90 C 165 90, 160 30, 100 30 C 40 30, 35 90, 30 90 Z" />
         <path d="M 55 65 Q 80 40 90 55 L 100 100 L 110 55 Q 120 40 145 65 Q 125 45 100 40 Q 75 45 55 65 Z" />
@@ -71,7 +71,7 @@ export default function Nav() {
           ctaText="Book Consultant"
           ctaHref="/contact"
           ease="power3.out"
-          className={scrolled ? "backdrop-blur-xl border-border" : "backdrop-blur-none border-transparent"}
+          className={scrolled ? "border-border" : "border-transparent"}
         />
       </div>
     </header>

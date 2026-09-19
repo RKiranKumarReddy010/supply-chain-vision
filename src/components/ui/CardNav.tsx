@@ -161,7 +161,8 @@ const CardNav: React.FC<CardNavProps> = ({
 
   return (
     <div className={`card-nav-container ${className}`}>
-      <nav ref={navRef} className={`card-nav ${isExpanded ? 'open' : ''}`} style={{ backgroundColor: baseColor }}>
+      <nav ref={navRef} className={`card-nav ${isExpanded ? 'open' : ''}`}>
+        <div className="card-nav-bg" style={{ backgroundColor: baseColor }} />
         <div className="card-nav-top">
           <div
             className={`hamburger-menu ${isHamburgerOpen ? 'open' : ''}`}
