@@ -15,6 +15,7 @@ type TeamMember = {
   bio: string;
   focus: string[];
   email: string;
+  linkedin?: string;
 };
 
 const team: TeamMember[] = [
@@ -27,6 +28,7 @@ const team: TeamMember[] = [
     bio: "Data Scientist & AI Developer with professional experience in supply chain forecasting and FMCG analytics. Proficient in engineering scalable Python pipelines, generative AI modeling, and advanced anomaly detection. Proven track record of translating complex business requirements into high-impact operational insights and robust production-grade machine learning workflows leveraging advanced statistical forecasting models and state-of-the-art transformer architectures for mid-market and enterprise retail brands.",
     focus: ["Revenue Growth Strategy", "AI Engineer", "Data Scientist"],
     email: "kiran.kumar@omnitensors.in",
+    linkedin: "https://www.linkedin.com/in/r-kiran-kumar-reddy-54400230b/",
   },
   {
     id: "rahul",
@@ -37,6 +39,7 @@ const team: TeamMember[] = [
     bio: "Co-founder leading mathematical modeling and algorithm design. Specializes in hierarchical probabilistic forecasting, sales and operations planning integration, and enterprise data architecture.",
     focus: ["Demand Forecasting", "Probabilistic Modelling", "S&OP Integration"],
     email: "rahul.sahoo@omnitensors.in",
+    linkedin: "https://www.linkedin.com/in/rahul-sahoo-1581aa418/",
   },
   {
     id: "vignesh",
@@ -47,6 +50,7 @@ const team: TeamMember[] = [
     bio: "Co-founder spearheading network architecture and inventory optimization. Oversees supply chain simulation models and multi-echelon stock balancing.",
     focus: ["Network Design", "Inventory Optimization", "ERP & WMS Integration"],
     email: "",
+    linkedin: "https://www.linkedin.com/in/vighneswara-manda/",
   },
   {
     id: "Ipsita",
@@ -57,6 +61,7 @@ const team: TeamMember[] = [
     bio: "Management Lead driving enterprise client deliveries and RGM project governance. Focuses on trade promotion optimization and price elasticity execution.",
     focus: ["Trade Spend Optimisation", "Promotion Effectiveness", "Elasticity Modelling"],
     email: "ipsita.nayak@omnitensors.in",
+    linkedin: "https://www.linkedin.com/in/ipsita-nayak-398988244/",
   },
   {
     id: "purnima",
@@ -67,6 +72,7 @@ const team: TeamMember[] = [
     bio: "Commercial lead orchestrating enterprise partnerships, client scoping, and operational deployment workflows for retail and FMCG clients.",
     focus: ["Data Platforms & Pipelines", "Decision Dashboards", "AI/ML Deployment"],
     email: "",
+    linkedin: "https://www.linkedin.com/in/purnima-medapati-483663332/",
   },
 ];
 
@@ -117,11 +123,25 @@ export default function Team() {
                 alt={m.name}
                 className="aspect-[3/4] w-full object-cover grayscale filter transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-x-0 bottom-0 p-2.5 sm:p-3 bg-gradient-to-t from-black via-black/75 to-transparent text-left">
-                <div className="text-[11px] sm:text-xs font-semibold text-foreground uppercase tracking-wider line-clamp-1">{m.name}</div>
-                <div className="text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.15em] text-muted-foreground">
-                  {m.role}
+              <div className="absolute inset-x-0 bottom-0 p-2.5 sm:p-3 bg-gradient-to-t from-black via-black/75 to-transparent flex justify-between items-end">
+                <div className="text-left">
+                  <div className="text-[11px] sm:text-xs font-semibold text-foreground uppercase tracking-wider line-clamp-1">{m.name}</div>
+                  <div className="text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.15em] text-muted-foreground">
+                    {m.role}
+                  </div>
                 </div>
+                {m.linkedin && (
+                  <div
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      window.open(m.linkedin, '_blank');
+                    }}
+                    className="text-[9px] font-mono uppercase tracking-wider bg-foreground text-background px-2 py-1 rounded-sm hover:opacity-80 transition-opacity z-10 cursor-pointer"
+                  >
+                    Connect
+                  </div>
+                )}
               </div>
               <span className="absolute top-2 right-2 sm:top-3 sm:right-3 h-6 w-6 sm:h-8 sm:w-8 rounded-full bg-foreground text-background flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                 <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" />

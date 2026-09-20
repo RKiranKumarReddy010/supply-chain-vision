@@ -2,11 +2,11 @@ import { useReveal } from "@/hooks/useReveal";
 import { ArrowRight } from "lucide-react";
 
 const MEMBERS = [
-  { name: "R Kiran Kumar Reddy", role: "Founder", photo: "/team/kiran-kumar-reddy.jpg" },
-  { name: "Rahul Sahoo", role: "Founder", photo: "/team/rahul-sahoo.jpg" },
-  { name: "Vighneswara Manda", role: "CO-Founder", photo: "/team/vighnesh-manda.jpg" },
-  { name: "Ipsita Nayak", role: "Management Lead", photo: "/team/ipsita-nayak.jpg" },
-  { name: "Purnima Medapati", role: "Head of Sales", photo: "/team/purnima-medapetta.jpg" },
+  { name: "R Kiran Kumar Reddy", role: "Founder", photo: "/team/kiran-kumar-reddy.jpg", linkedin: "https://www.linkedin.com/in/r-kiran-kumar-reddy-54400230b/" },
+  { name: "Rahul Sahoo", role: "Founder", photo: "/team/rahul-sahoo.jpg", linkedin: "https://www.linkedin.com/in/rahul-sahoo-1581aa418/" },
+  { name: "Vighneswara Manda", role: "CO-Founder", photo: "/team/vighnesh-manda.jpg", linkedin: "https://www.linkedin.com/in/vighneswara-manda/" },
+  { name: "Ipsita Nayak", role: "Management Lead", photo: "/team/ipsita-nayak.jpg", linkedin: "https://www.linkedin.com/in/ipsita-nayak-398988244/" },
+  { name: "Purnima Medapati", role: "Head of Sales", photo: "/team/purnima-medapetta.jpg", linkedin: "https://www.linkedin.com/in/purnima-medapati-483663332/" },
 ];
 
 export default function TeamSection() {
@@ -34,9 +34,23 @@ export default function TeamSection() {
                 alt={m.name}
                 className="aspect-[3/4] w-full object-cover grayscale filter transition-transform duration-500 group-hover:scale-105"
               />
-              <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black via-black/70 to-transparent text-left">
-                <div className="text-xs font-semibold text-foreground uppercase tracking-wider">{m.name}</div>
-                <div className="text-[10px] font-mono uppercase tracking-[0.18em] text-muted-foreground">{m.role}</div>
+              <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black via-black/70 to-transparent flex justify-between items-end">
+                <div className="text-left">
+                  <div className="text-xs font-semibold text-foreground uppercase tracking-wider">{m.name}</div>
+                  <div className="text-[10px] font-mono uppercase tracking-[0.18em] text-muted-foreground">{m.role}</div>
+                </div>
+                {m.linkedin && (
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      window.open(m.linkedin, '_blank');
+                    }}
+                    className="text-[9px] font-mono uppercase tracking-wider bg-foreground text-background px-2 py-1 rounded-sm hover:opacity-80 transition-opacity z-10"
+                  >
+                    Connect
+                  </button>
+                )}
               </div>
             </a>
           ))}
