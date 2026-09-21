@@ -49,7 +49,7 @@ const team: TeamMember[] = [
     photo: "/team/vighnesh-manda.jpg",
     bio: "Co-founder spearheading network architecture and inventory optimization. Oversees supply chain simulation models and multi-echelon stock balancing.",
     focus: ["Network Design", "Inventory Optimization", "ERP & WMS Integration"],
-    email: "",
+    email: "manda@omnitensors.in",
     linkedin: "https://www.linkedin.com/in/vighneswara-manda/",
   },
   {
@@ -71,7 +71,7 @@ const team: TeamMember[] = [
     photo: "/team/purnima-medapetta.jpg",
     bio: "Commercial lead orchestrating enterprise partnerships, client scoping, and operational deployment workflows for retail and FMCG clients.",
     focus: ["Data Platforms & Pipelines", "Decision Dashboards", "AI/ML Deployment"],
-    email: "",
+    email: "medapati.purnima@omnitensors.in",
     linkedin: "https://www.linkedin.com/in/purnima-medapati-483663332/",
   },
 ];
