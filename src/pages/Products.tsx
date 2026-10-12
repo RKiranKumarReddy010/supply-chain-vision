@@ -6,7 +6,8 @@ import {
   Zap, 
   CheckCircle2, 
   ShieldCheck, 
-  Sparkles 
+  Sparkles,
+  Layers 
 } from "lucide-react";
 import ScrollFloat from "@/components/ui/ScrollFloat";
 
@@ -120,8 +121,8 @@ export default function Products() {
             </div>
           </div>
 
-          {/* Software & Engagements 3-Column Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
+          {/* Software & Engagements Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
             
             {/* Veritas AI Suite */}
             <div className="rounded-3xl border border-border bg-card p-6 sm:p-8 md:p-10 flex flex-col justify-between hover:border-cyan-400/50 transition-all">
@@ -219,6 +220,56 @@ export default function Products() {
                   className="inline-flex items-center gap-2 text-xs font-mono uppercase font-bold text-emerald-400 hover:underline"
                 >
                   Open Lead Finder Tool <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+
+            {/* OmniTensors Software Solutions */}
+            <div className="rounded-3xl border border-border bg-card p-6 sm:p-8 md:p-10 flex flex-col justify-between hover:border-violet-400/50 transition-all">
+              <div className="space-y-5 sm:space-y-6">
+                <div className="flex items-center justify-between flex-wrap gap-2">
+                  <div className="h-12 w-12 rounded-xl bg-violet-400/10 text-violet-400 flex items-center justify-center">
+                    <Layers className="h-6 w-6" />
+                  </div>
+                  <span className="px-3 py-1 bg-violet-500/10 text-violet-400 rounded-md text-xs font-mono font-bold uppercase tracking-wider border border-violet-500/20">
+                    Web & Cloud Platform
+                  </span>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl sm:text-3xl font-display font-bold text-foreground tracking-tight">
+                    Software Solutions Suite
+                  </h2>
+                  <p className="text-xs font-mono text-muted-foreground mt-1">
+                    Custom Web Applications & Scalable Cloud Systems
+                  </p>
+                </div>
+
+                <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed">
+                  Bespoke software architecture engineered for high-growth enterprises — modern interactive web applications, real-time data pipelines, AI models, and cloud-native infrastructure.
+                </p>
+
+                <div className="space-y-2 pt-2">
+                  {[
+                    "Enterprise-grade full-stack web application development",
+                    "Modern reactive UI/UX with high-performance animations",
+                    "Scalable API microservices and secure database architectures",
+                    "Integrated AI agent orchestration & automation pipelines",
+                  ].map((f) => (
+                    <div key={f} className="flex items-start gap-2 text-xs text-zinc-300">
+                      <ShieldCheck className="w-4 h-4 text-violet-400 shrink-0 mt-0.5" />
+                      <span>{f}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="pt-6 sm:pt-8 mt-6 sm:mt-8 border-t border-border">
+                <a
+                  href="/softsolution"
+                  className="inline-flex items-center gap-2 text-xs font-mono uppercase font-bold text-violet-400 hover:underline"
+                >
+                  Explore Software Solutions <ArrowRight className="w-3.5 h-3.5" />
                 </a>
               </div>
             </div>

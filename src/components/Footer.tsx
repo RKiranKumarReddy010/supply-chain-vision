@@ -25,6 +25,7 @@ export default function Footer() {
     {
       h: "Solutions",
       links: [
+        { label: "Software Solutions", href: "/softsolution" },
         { label: "FMCG & Packaged Goods", href: "/work" },
         { label: "Modern Retail & Stores", href: "/work" },
         { label: "Quick Commerce", href: "/work" },

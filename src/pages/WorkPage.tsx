@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import CTA from "@/components/CTA";
 import ScrollFloat from "@/components/ui/ScrollFloat";
-import { ArrowRight, ShoppingBag, Store, Factory, ShieldCheck, Zap } from "lucide-react";
+import { ArrowRight, ShoppingBag, Store, Factory, ShieldCheck, Zap, Layers } from "lucide-react";
 
 const INDUSTRIES = [
   {
@@ -200,6 +201,30 @@ export default function WorkPage() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Software Solutions Spotlight Banner */}
+          <div className="mt-12 sm:mt-16 p-8 sm:p-10 rounded-3xl border border-border/80 bg-gradient-to-r from-card via-card to-primary/5 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-lg">
+            <div className="space-y-2 max-w-2xl">
+              <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-muted-foreground font-bold">
+                <Layers className="w-4 h-4 text-primary" />
+                <span>Cloud & Custom Software</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              </div>
+              <h3 className="font-display text-2xl sm:text-3xl font-bold text-foreground">
+                OmniTensors Software Solutions
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Engineering the tensors of tomorrow — custom web applications, distributed cloud architecture, AI models, and real-time decision systems.
+              </p>
+            </div>
+            <Link
+              to="/softsolution"
+              className="px-6 py-3.5 rounded-xl bg-foreground text-background font-mono text-xs uppercase font-bold tracking-wider hover:opacity-90 transition-opacity inline-flex items-center gap-2 shrink-0 shadow-md"
+            >
+              <span>Explore Software Suite</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>

@@ -10,6 +10,7 @@ const NAV_ITEMS: CardNavItem[] = [
       { label: "Services", href: "/services", ariaLabel: "Demand & Supply Services" },
       { label: "Process", href: "/process", ariaLabel: "Our Process" },
       { label: "Solutions", href: "/work", ariaLabel: "Industry Solutions" },
+      { label: "Software Solutions", href: "/softsolution", ariaLabel: "Software Solutions" },
     ]
   },
   {
