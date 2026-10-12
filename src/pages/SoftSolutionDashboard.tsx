@@ -1,5 +1,5 @@
 export default function SoftSolutionDashboard() {
-  const targetUrl = "https://omnitensors-software-solutions-lb3vbd9gv.vercel.app";
+  const targetUrl = "https://omnitensors-software-solutions-seven.vercel.app/";
 
   return (
     <div className="h-[100dvh] w-full bg-background overflow-hidden">
